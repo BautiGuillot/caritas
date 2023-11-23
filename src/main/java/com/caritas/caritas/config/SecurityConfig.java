@@ -26,25 +26,19 @@ public class SecurityConfig {
 
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .userDetailsService(userDetailsService)
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/webjars/**", "/resources/**","/css/**").permitAll()
-                        .requestMatchers("/registro").permitAll() // Permitir acceso a la URL de registro
-                        .anyRequest().authenticated()
+                        .requestMatchers("/webjars/**", "/resources/**", "/css/**").permitAll()
+                        .requestMatchers("/").permitAll()
                 )
-                .formLogin((form) -> form
-                        .loginPage("/login") // Especifica aquí la ruta de tu página de inicio de sesión personalizada
-
-                        .permitAll()
-                        .defaultSuccessUrl("/inicio", true) // Redirige a la página de inicio después de iniciar sesión correctamente
-                )
+                .formLogin((form) -> form.permitAll())
                 .logout((logout) -> logout.permitAll());
         return http.build();
     }
 
-    @Bean
+        @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }

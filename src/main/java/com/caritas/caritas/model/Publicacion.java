@@ -25,7 +25,7 @@ public class Publicacion {
 
     @ManyToOne
     @JoinColumn(name = "admin_id")
-    private Admin creador;
+    private Admin admin;
 
     public Long getId() {
         return id;
@@ -67,11 +67,11 @@ public class Publicacion {
         this.descripcion = descripcion;
     }
 
-    public Admin getCreador() {
-        return creador;
+    public Admin getAdmin() {
+        return admin;
     }
 
-    public void setCreador(Admin creador) {
-        this.creador = creador;
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 }
