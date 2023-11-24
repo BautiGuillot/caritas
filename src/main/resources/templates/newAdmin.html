@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New user</title>
+</head>
+<body>
+<div>Nuevo User</div>
+<form th:action="@{/newAdmin}" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+    <br>
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" name="apellido" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required>
+    <br>
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <input type="submit" value="Registrar">
+    <br>
+</form>
+
+</body>
+</html>

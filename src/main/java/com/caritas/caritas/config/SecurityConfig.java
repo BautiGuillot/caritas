@@ -32,8 +32,16 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/webjars/**", "/resources/**", "/css/**").permitAll()
                         .requestMatchers("/").permitAll()
+                        .requestMatchers("/newAdmin").permitAll()
+                        .requestMatchers("/adminHome").permitAll()
                 )
-                .formLogin((form) -> form.permitAll())
+
+                .formLogin((form) ->form
+                        .loginPage("/login") // Especifica aquí la ruta de tu página de inicio de sesión personalizada
+                        .permitAll()
+                        .defaultSuccessUrl("/adminHome", true) // Redirige a la página de inicio después de iniciar sesión correctamente
+                )
+
                 .logout((logout) -> logout.permitAll());
         return http.build();
     }
