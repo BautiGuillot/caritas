@@ -26,7 +26,7 @@ public class AdminController {
     @PostMapping("/login")
     public String procesarFormularioLogin() {
         // Lógica para procesar el formulario de inicio de sesión (puede ser manejada por Spring Security)
-        return "redirect:/admin/adminHome"; // Redirige al usuario a la página de inicio después del inicio de sesión exitoso
+        return "redirect:admin/adminHome"; // Redirige al usuario a la página de inicio después del inicio de sesión exitoso
     }
 
     @GetMapping("/adminHome")
