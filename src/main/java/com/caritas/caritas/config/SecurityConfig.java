@@ -32,14 +32,14 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/webjars/**", "/resources/**", "/css/**").permitAll()
                         .requestMatchers("/").permitAll()
-                        .requestMatchers("/newAdmin").permitAll()
-                        .requestMatchers("/adminHome").permitAll()
+                        .requestMatchers("/admin/**").permitAll()
+                        .requestMatchers("/admin/newAdmin").permitAll()
                 )
 
                 .formLogin((form) ->form
-                        .loginPage("/login") // Especifica aquí la ruta de tu página de inicio de sesión personalizada
+                        .loginPage("/admin/login") // Especifica aquí la ruta de tu página de inicio de sesión personalizada
                         .permitAll()
-                        .defaultSuccessUrl("/adminHome", true) // Redirige a la página de inicio después de iniciar sesión correctamente
+                        .defaultSuccessUrl("/admin/adminHome", true) // Redirige a la página de inicio después de iniciar sesión correctamente
                 )
 
                 .logout((logout) -> logout.permitAll());
