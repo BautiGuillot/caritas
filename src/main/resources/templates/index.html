@@ -1,10 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <script>
+        var mediaPath = "../static/media";
+        var cssPath = "../static/";
+    </script>
+    <title>Caritas</title>
+    <link rel="stylesheet" href="cssPath/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-index
+    <header>
+        <div class="container">
+            <img src='mediaPath/mercedes_lujan_2.jpg' alt="Logo de Cáritas" class="logo-img">
+            <nav>
+                <a href="quienes-somos.html">Quiénes somos</a>
+                <a href="#areas-section">Áreas</a>
+                <a href="#que-hacemos">Novedades</a>
+                <a href="#ultima">Nosotros</a>
+                <a href="#como-donar" class="donar-button">Donar aquí</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <h1>Colaborá con <br>Cáritas</h1>
+    </section>
+
+    <div class="wave-header">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,256L48,261.3C96,267,192,277,288,266.7C384,256,480,224,576,192C672,160,768,128,864,133.3C960,139,1056,181,1152,202.7C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+    </div>
+
+    <section id="areas-section">
+        <div class="left-section">
+            <div class="cuadro">
+                <a href="enlace_1.html">
+                    <img src="mediaPath/DSC_0016.JPG" alt="Imagen 1">
+                    <p>Vivienda</p>
+                </a>
+            </div>
+            <div class="cuadro">
+                <a href="enlace_2.html">
+                    <img src="mediaPath/DSC_0350.JPG" alt="Imagen 2">
+                    <p>Pastoral</p>
+                </a>
+            </div>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105017.73147049602!2d-59.50435040289008!3d-34.65964978236415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc7313caa5e45b%3A0xc86f63a77809bb3a!2sMercedes%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1699481557694!5m2!1ses!2sar" width="80%" height="80%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="right-section">
+            <div class="cuadro">
+                <a href="enlace_1.html">
+                    <img src="mediaPath/DSC_0142.JPG" alt="Imagen 1">
+                    <p>Economia solidaria</p>
+                </a>
+            </div>
+            <div class="cuadro">
+                <a href="enlace_2.html">
+                    <img src="mediaPath/DSC_0077.JPG" alt="Imagen 2">
+                    <p>Comunicacion y recursos</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <section id="que-hacemos">
+        <div class="container">
+            <h2>Novedades</h2>
+            <div class="programas">
+                <div class="carta">
+                    <h3>Donación mensual</h3>
+                    <p>Es un compromiso de dar una cantidad específica de dinero de forma regular.</p>
+                    <button>+ Info</button>
+                </div>
+                <div class="carta">
+                    <h3>Doná por unica vez</h3>
+                    <p>Implica dar una cantidad de dinero de manera puntual, sin un compromiso contínuo.</p>
+                    <button>+ Info</button>
+                </div>
+                <div class="carta">
+                    <h3>Actualizar aporte mensual</h3>
+                    <p>Posibilidad de modificar la cantidad o detalles de una donación mensual ya existente.</p>
+                    <button>+ Info</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="image-text-section">
+        <div class="container">
+            <div class="image-container">
+                <img src="mediaPath/Captura desde 2023-11-10 09-01-44.png">
+            </div>
+            <div class="text-container">
+                <h2>¿Cómo donar?</h2>
+                <p>En Cáritas, estamos convencidos que todos tenemos
+                    algo para compartir con los demás. Por eso, te invitamos
+                    a sumarte y ayudarnos a llevar asistencia, esperanza
+                    y oportunidades a quienes están en situación de pobreza,
+                    para que logren transformar su realidad.</p>
+            </div>
+        </div>
+    </section>
+    
+
+
+    <div class="wave-header">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#114372" fill-opacity="1" d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+
+    </div>
+
+    <section id="ultima">
+        <div class="container">
+            <div class="block">
+                <h2>Sedes</h2>
+                <p>Texto relacionado con Sedes.</p>
+            </div>
+            <div class="block">
+                <h2>Voluntariado Joven</h2>
+                <p>Texto relacionado con Voluntariado Joven.</p>
+            </div>
+            <div class="block">
+                <h2>Contacto</h2>
+                <p>Información de contacto.</p>
+                <a href="https://www.twitter.com" target="_blank">
+                    <i class="fa-brands fa-twitter" style="color: black;"></i>
+                </a>
+
+                <a href="https://www.facebook.com" target="_blank">
+                    <i class="fa-brands fa-facebook" style="color: black;"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <i class="fa-brands fa-instagram" style="color: black;"></i>
+                </a>
+                <a href="https://www.youtube.com" target="_blank">
+                    <i class="fa-brands fa-youtube" style="color: black;"></i>
+                </a>
+            </div>
+            <div class="block">
+                <h2>Como Sumarte</h2>
+                <p>Instrucciones para sumarte.</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <footer>
+        <div class="container">
+            <button class="donate-button">Donar aquí</button>
+        </div>
+    </footer>
+
+    
 </body>
 </html>
