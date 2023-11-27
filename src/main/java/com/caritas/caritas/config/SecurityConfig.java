@@ -32,13 +32,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/webjars/**", "/resources/**", "/css/**").permitAll()
                         .requestMatchers("/").permitAll()
-                        .requestMatchers("/admin/**").permitAll()
+                        .requestMatchers("/**").permitAll()
                 )
 
                 .formLogin((form) -> form
-                        .loginPage("/admin/login")
-                        .loginProcessingUrl("/admin/login")
-                        .defaultSuccessUrl("/admin/home")
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/adminHome")
                         .permitAll()
                 )
 
