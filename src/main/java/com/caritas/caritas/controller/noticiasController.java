@@ -9,21 +9,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequestMapping("/noticias")
 @Controller
 public class noticiasController {
     @Autowired
     private PublicacionService publicacionService;
 
 
-    @GetMapping("/noticias")
-    public String noticias() {
-        return "/noticias";
-    }
-
-
-    @GetMapping("/noticias")
+    @GetMapping
     public String mostrarListado(Model model) {
-        model.addAttribute("publicaciones",publicacionService.getPublicacionesRecientes());
         return "noticias";
     }
 

@@ -2,19 +2,27 @@ package com.caritas.caritas.controller;
 
 
 import com.caritas.caritas.model.Admin;
+import com.caritas.caritas.model.Publicacion;
 import com.caritas.caritas.service.AdminService;
+import com.caritas.caritas.service.PublicacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 public class AdminController {
 
     @Autowired
     private AdminService adminService;
+
+    @Autowired
+    private PublicacionService publicacionService;
 
 
     @GetMapping("/login")
@@ -29,8 +37,12 @@ public class AdminController {
     }
 
     @GetMapping("/adminHome")
-    public String adminHome() {
-        return "/adminHome"; // Debe coincidir con la vista de inicio de sesión
+    public String index(Model model) {
+        List<Admin> admins = adminService.getAllAdmins();
+        model.addAttribute("admin", admins);
+        List<Publicacion> publicaciones = publicacionService.getAll();
+        model.addAttribute("publicaciones", publicaciones);
+        return "/adminHome";
     }
 
     @GetMapping("/newAdmin")

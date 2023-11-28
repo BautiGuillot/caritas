@@ -5,11 +5,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
 public class IndexController {
 
-        @GetMapping
+        @GetMapping("/")
         public String index() {
-            return "index"; // Debe coincidir con la vista de inicio de sesión
+            return "index";
         }
+
+        @GetMapping("/quienes-somos")
+        public String quienesSomos() {
+            return "quienes-somos";
+        }
+
+
+
 }

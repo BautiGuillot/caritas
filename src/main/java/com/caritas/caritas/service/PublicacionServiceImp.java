@@ -47,9 +47,7 @@ public class PublicacionServiceImp implements PublicacionService {
         LocalDate fechaActual = LocalDate.now();
         LocalDate fechaDosDiasAntes = fechaActual.minus(2, ChronoUnit.DAYS);
 
-        List<Publicacion> publicacionesRecientes = repository.findPublicacionesRecientes(
-                fechaDosDiasAntes, fechaActual
-        );
+        List<Publicacion> publicacionesRecientes = repository.findPublicacionesRecientes(fechaDosDiasAntes, fechaActual);
 
         if (publicacionesRecientes.size() >= 3) {
 
