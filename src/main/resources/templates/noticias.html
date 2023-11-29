@@ -35,10 +35,6 @@
                         <p class="card-text description" th:text="${publicacion.descripcion}">Descripción</p>
                         <p class="card-text description-more" style="display: none;"></p>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted" th:text="${publicacion.fecha}">Fecha</small>
-                        <a th:href="@{/admin/publicacion/delete/{id}(id=${publicacion.getId()})}">Borrar</a>
-                    </div>
                 </div>
             </div>
         </th:block>

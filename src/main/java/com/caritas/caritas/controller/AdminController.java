@@ -8,10 +8,7 @@ import com.caritas.caritas.service.PublicacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,7 @@ public class AdminController {
     private PublicacionService publicacionService;
 
 
+    //Seccion de login
     @GetMapping("/login")
     public String login() {
         return "/login"; // Debe coincidir con la vista de inicio de sesión
@@ -36,6 +34,9 @@ public class AdminController {
         return "redirect:/adminHome"; // Redirige al usuario a la página de inicio después del inicio de sesión exitoso
     }
 
+
+
+    //seccion de adminHome
     @GetMapping("/adminHome")
     public String index(Model model) {
         List<Admin> admins = adminService.getAllAdmins();
@@ -45,6 +46,9 @@ public class AdminController {
         return "/adminHome";
     }
 
+
+
+    //seccion de crear admin
     @GetMapping("/newAdmin")
     public String mostrarFormularioRegistro() {
         return "/newAdmin"; // Debe coincidir con la vista de crearUsuario
@@ -54,6 +58,36 @@ public class AdminController {
     public String create(@ModelAttribute Admin administrator) {
         adminService.create(administrator);
         return "redirect:/login"; /*esto es enviado por url*/
+    }
+
+
+
+    //seccion de crear publicacion
+    @GetMapping("/crearPublicacion")
+    public String mostrarFormularioPublicacion() {
+        return "crearPublicacion";
+    }
+
+    @PostMapping("/crearPublicacion")
+    public String guardarPublicacion(@ModelAttribute Publicacion publicacion) {
+        publicacionService.create(publicacion);
+        return "redirect:/adminHome";
+    }
+
+
+
+    //seccion de borrar y editar publicacion
+    @GetMapping("/delete/{id}")
+    public String deletePublicacion(@PathVariable Long id) {
+        publicacionService.delete(id);
+        return "redirect:/adminHome";
+    }
+
+    @GetMapping("/detalle/{id}")
+    public String detalle(@PathVariable("id") Long id,Model model) {
+        Publicacion publicacion =publicacionService.findById(id);
+        model.addAttribute("publicacionDetalle",publicacion);
+        return "/admin/publicacionAdmin/detalle";
     }
 
 
