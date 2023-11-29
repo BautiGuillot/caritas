@@ -79,6 +79,13 @@
                     <div class="card-footer">
                         <small class="text-muted" th:text="${publicacion.fecha}">Fecha</small>
 
+                        <!-- Botones de editar y borrar -->
+                        <div class="btn-group" role="group">
+                            <a th:action="@{'/editarPublicacion/' + ${publicacion.id}}"
+                               class="btn btn-primary btn-sm">Editar</a>
+
+                            <a th:href="@{/delete/{id}(id=${publicacion.getId()})}">Borrar</a>
+                        </div>
                     </div>
                 </div>
             </div>

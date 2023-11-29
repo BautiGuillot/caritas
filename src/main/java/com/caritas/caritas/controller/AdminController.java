@@ -77,17 +77,11 @@ public class AdminController {
 
 
     //seccion de borrar y editar publicacion
+
     @GetMapping("/delete/{id}")
     public String deletePublicacion(@PathVariable Long id) {
         publicacionService.delete(id);
         return "redirect:/adminHome";
-    }
-
-    @GetMapping("/detalle/{id}")
-    public String detalle(@PathVariable("id") Long id,Model model) {
-        Publicacion publicacion =publicacionService.findById(id);
-        model.addAttribute("publicacionDetalle",publicacion);
-        return "/admin/publicacionAdmin/detalle";
     }
 
 
