@@ -32,6 +32,14 @@ public class PublicacionServiceImp implements PublicacionService {
     }
 
     @Override
+    public void update(Publicacion publicacion, Long id) {
+        Publicacion publicacionDB = repository.findById(id).get();
+        publicacionDB.setTitulo(publicacion.getTitulo());
+        publicacionDB.setDescripcion(publicacion.getDescripcion());
+        repository.save(publicacionDB);
+    }
+
+    @Override
     public Publicacion findById(Long id) {
         List<Publicacion> publicacions= getAll();
         for(Publicacion p : publicacions){

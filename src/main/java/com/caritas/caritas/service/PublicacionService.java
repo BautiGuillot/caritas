@@ -10,6 +10,8 @@ public interface PublicacionService {
 
     void delete(Long id);
 
+    void update(Publicacion publicacion, Long id);
+
     Publicacion findById(Long id);
 
     List<Publicacion> getPublicacionesRecientes();

@@ -95,6 +95,12 @@ public class AdminController {
         return "editarPublicacion"; // Devuelve la página de edición con los datos de la publicación
     }
 
+    @PostMapping("/editarPublicacionPost/{id}")
+    public String updatePublicacion(@ModelAttribute Publicacion publicacion, @PathVariable("id") Long id, Model model){
+        publicacionService.update(publicacion, id);
+        return "redirect:/adminHome";
+    }
+
 
 
 
