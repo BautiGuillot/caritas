@@ -32,6 +32,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/webjars/**", "/resources/**", "/css/**").permitAll()
                         .requestMatchers("/").permitAll()
+                        .requestMatchers("/adminHome","/crearPublicacion","/editarPublicacion/**","/newAdmin").authenticated()
                         .requestMatchers("/**").permitAll()
                 )
 
@@ -41,7 +42,11 @@ public class SecurityConfig {
                         .permitAll()
                 )
 
-                .logout((logout) -> logout.permitAll());
+                .logout((logout) -> logout
+                        .invalidateHttpSession(true)
+                        .clearAuthentication(true)
+                        .logoutSuccessUrl("/login")
+                        .permitAll());
         return http.build();
     }
 
