@@ -84,5 +84,18 @@ public class AdminController {
         return "redirect:/adminHome";
     }
 
+    @GetMapping("/editarPublicacion/{id}")
+    public String editarPublicacion(@PathVariable Long id, Model model) {
+        // Lógica para recuperar la publicación con la ID proporcionada
+        // Esto puede incluir una llamada al repositorio para obtener la publicación desde la base de datos
+        // Suponiendo que obtienes la publicación y la pasas al modelo
+        Publicacion publicacion = publicacionService.findById(id);
+        model.addAttribute("publicacion", publicacion);
+
+        return "editarPublicacion"; // Devuelve la página de edición con los datos de la publicación
+    }
+
+
+
 
 }

@@ -92,11 +92,9 @@
                     <div class="card-footer">
                         <!-- Botones de editar y borrar -->
                         <div class="btn-group" role="group">
-                            <a th:action="@{'/editarPublicacion/' + ${publicacion.id}}"
-                               class="btn btn-primary btn-sm">Editar</a>
+                            <a th:href="@{'/editarPublicacion/' + ${publicacion.getId()}}" class="btn btn-primary btn-sm">Editar</a>
 
-                            <a th:href="@{/delete/{id}(id=${publicacion.getId()})}"
-                               class="btn btn-danger btn-sm">Borrar</a>
+                            <a th:href="@{/delete/{id}(id=${publicacion.getId()})}" class="btn btn-danger btn-sm">Borrar</a>
                         </div>
                     </div>
                 </div>
