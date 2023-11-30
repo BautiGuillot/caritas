@@ -33,7 +33,7 @@
                     <div class="card-body">
                         <h5 class="card-title" th:text="${publicacion.titulo}">Título</h5>
                         <p class="card-text description" th:text="${publicacion.descripcion}">Descripción</p>
-                        <p class="card-text description-more" style="display: none;"></p>
+                        <a th:href="@{/noticias/detallesPublicacion/{id}(id=${publicacion.getId()})}">Más Detalles</a>
                     </div>
                 </div>
             </div>

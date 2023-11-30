@@ -30,4 +30,13 @@ public class noticiasController {
         return "noticias";
     }
 
+    @GetMapping("/detallesPublicacion/{id}")
+    public String detallesPublicacion(@PathVariable Long id, Model model) {
+
+        Publicacion publicacion = publicacionService.findById(id);
+        model.addAttribute("publicacion", publicacion);
+
+        return "detallesPublicacion";
+    }
+
 }

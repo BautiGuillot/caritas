@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la Publicación</title>
+    <link href="details.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <img src='media/mercedes_lujan_2.jpg' alt="Logo de Cáritas" class="logo-img">
+            <nav>
+                <a href="/">Inicio</a>
+                <a href="/quienes-somos">Quiénes somos</a>
+                <a href="/noticias">volver a Noticias</a>
+                <a href="#como-donar" class="donar-button">Donar aquí</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <h2>Detalles de la Publicación</h2>
+        <h3 th:text="${publicacion.titulo}">Título</h3>
+        <p th:text="${publicacion.descripcion}">Descripción</p>
+    </div>
+
+</body>
+
+</html>
