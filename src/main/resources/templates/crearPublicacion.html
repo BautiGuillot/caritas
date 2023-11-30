@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <title>Nueva Publicación</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Estilos adicionales si es necesario */
+        /* Por ejemplo, para dar espacio entre los elementos del formulario */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
+    <div class="container">
         <a class="navbar-brand" href="#">
             <img src="/media/caritas-argentina.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
-            Cariatas
+            Caritas
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,26 +41,28 @@
             <input class="btn btn-warning form-control me-2" type="submit" value="Cerrar sesión"
                    onclick="return confirm('¿Desea cerrar sesión?');">
         </form>
+    </div>
+</nav>
 
-    </div></nav>
+<div class="container mt-4">
+    <h1>Crear Nueva Publicación</h1>
 
-<h1>Crear Nueva Publicación</h1>
-
-<form action="#" th:action="@{/crearPublicacion}" method="post">
-
-        <label for="titulo">Titulo:</label>
-        <input type="text" id="titulo" name="titulo" required>
-        <br>
-        <label for="imagen">Imagen:</label>
-        <input type="image" id="imagen" name="imagen" required>
-        <br>
-        <label for="descripcion">Contenido:</label>
-        <input type="text" id="descripcion" name="descripcion" required>
-        <br>
-        <input type="submit" value="Guardar Publicación">
-        <br>
-</form>
-
+    <form th:action="@{/crearPublicacion}" method="post">
+        <div class="form-group">
+            <label for="titulo">Título:</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" required>
+        </div>
+        <div class="form-group">
+            <label for="imagen">URL de la Imagen:</label>
+            <input type="image" class="form-control" id="imagen" name="imagen" required>
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar Publicación</button>
+    </form>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
