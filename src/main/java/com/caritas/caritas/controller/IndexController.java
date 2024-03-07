@@ -17,6 +17,11 @@ public class IndexController {
             return "quienes-somos";
         }
 
+        @GetMapping("/donar")
+        public String donar() {
+            return "donar";
+        }
+
 
 
 }
