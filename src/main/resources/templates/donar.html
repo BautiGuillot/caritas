@@ -2,68 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="donar.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información de Donación</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        .info {
-            margin-bottom: 20px;
-        }
-        .info p {
-            margin: 10px 0;
-        }
-        .info p strong {
-            margin-right: 10px;
-        }
-
-        /* Estilos para la barra de navegación */
-        header {
-            background-color: #333; /* Color de fondo de la barra de navegación */
-            padding: 10px 0; /* Espaciado interno */
-        }
-
-        .container {
-            display: flex; /* Usa flexbox para alinear los elementos */
-            justify-content: space-between; /* Alinear los elementos en los extremos */
-            align-items: center; /* Alinear verticalmente los elementos */
-        }
-
-        nav {
-            display: flex; /* Usa flexbox para alinear los elementos del menú */
-        }
-
-        nav a {
-            color: white; /* Color de texto de los enlaces */
-            text-decoration: none; /* Quita la decoración de subrayado */
-            padding: 10px 20px; /* Espaciado interno */
-            margin-right: 10px; /* Espaciado derecho entre enlaces */
-            border-radius: 5px; /* Borde redondeado */
-        }
-
-        nav a:hover {
-            background-color: #555; /* Cambia el color de fondo al pasar el mouse sobre los enlaces */
-        }
-
-        /* Estilos para el logo */
-        .logo-img {
-            max-width: 100px; /* Ancho máximo del logo */
-            height: auto; /* Altura automática para mantener la proporción */
-        }
-
-    </style>
 </head>
 <body>
 
@@ -79,19 +20,65 @@
     </div>
 </header>
 
-<div class="container">
-    <h1>Información de Donación</h1>
-    <div class="info">
-        <p><strong>Alias:</strong> CARITAS.MERCE.LUJAN</p>
-        <p><strong>CBU:</strong> 2850767730000004852073</p>
-        <p><strong>Entidad:</strong> Arzobispado de Mercedes Lujan</p>
-        <p><strong>CUIT:</strong> 30557541051</p>
+<section id="que-hacemos">
+    <div class="container">
+        <h2>¿Cómo ayudar?</h2>
+        <div class="programas">
+            <div class="carta">
+                <h3>Donación monetaria</h3>
+                <p><b>Es un compromiso de dar una cantidad específica de dinero de forma regular.</b></p>
+                <button onclick="toggleInfoWindow(1)">+ Info</button>
+            </div>
+            <div class="carta">
+                <h3>Otras maneras de colaborar</h3>
+                <p><b>Tu apoyo no se limita a contribuciones económicas; también podés colaborar donando ropa u otros objetos que ya no necesites en nuestras sedes.</b></p>
+                <button onclick="toggleInfoWindow(2)">+ Info</button>
+            </div>
+        </div>
     </div>
-    <div class="qr">
-        <img src="media/QR_juan.png" alt="Imagen QR">
-        <p>Pastoral</p>
+</section>
+
+<div id="info-window-1" class="info-window">
+    <span class="close-button" onclick="closeInfoWindow(1)">X</span>
+    <div class="info-content">
+        <h1>Aporte monetario</h1>
+        <div class="info">
+            <p><strong>Alias:</strong> CARITAS.MERCE.LUJAN</p>
+            <p><strong>CBU:</strong> 2850767730000004852073</p>
+            <p><strong>Entidad:</strong> Arzobispado de Mercedes Lujan</p>
+            <p><strong>CUIT:</strong> 30557541051</p>
+        </div>
+        <div class="qr">
+            <img src="media/QR_juan.png" alt="Imagen QR">
+        </div>
     </div>
 </div>
+
+<div id="info-window-2" class="info-window">
+    <span class="close-button" onclick="closeInfoWindow(2)">X</span>
+    <div class="info-content">
+        <h2>Acercate a nuestra sede</h2>
+        <div class="info">
+            <p><strong>Días y horarios de atención: </strong>Lunes de 13 a 16 hs y Miércoles de 9 a 12 hs</p>
+            <p><strong>Contacto: </strong>(02324) 43-3028</p>
+            <p><strong>Consultas: </strong>caritas@arquimercedes-lujan.com.ar</p>
+            <p><strong>Ubicación: </strong><a href="https://maps.app.goo.gl/T7pAcQZq2gXJbjwp9" target="_blank">Calle 22 N° 745, Mercedes, Buenos Aires</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript functions to toggle and close the info windows
+    function toggleInfoWindow(windowNumber) {
+        var infoWindow = document.getElementById('info-window-' + windowNumber);
+        infoWindow.style.display = infoWindow.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function closeInfoWindow(windowNumber) {
+        var infoWindow = document.getElementById('info-window-' + windowNumber);
+        infoWindow.style.display = 'none';
+    }
+</script>
 
 </body>
 </html>
