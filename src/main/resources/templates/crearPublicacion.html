@@ -50,7 +50,7 @@
     <form th:action="@{/crearPublicacion}" method="post">
         <div class="form-group">
             <label for="titulo">Título:</label>
-            <input type="text" class="form-control" id="titulo" name="titulo" required>
+            <input type="text" class="form-control" id="titulo" name="titulo" required maxlength="30">
         </div>
         <div class="form-group">
             <label for="imagen">URL de la Imagen:</label>
@@ -58,7 +58,7 @@
         </div>
         <div class="form-group">
             <label for="descripcion">Descripción:</label>
-            <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
+            <textarea class="form-control" id="descripcion" name="descripcion" required maxlength="50"> </textarea>
         </div>
         <button type="submit" class="btn btn-primary">Guardar Publicación</button>
     </form>

@@ -488,4 +488,19 @@ footer .donate-button {
     max-width: 300px; /* Adjust maximum width as needed */
     margin: 0 10px; /* Adjust horizontal margin as needed */
     padding: 10% 5%; /* Adjust padding as needed */
+    overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+.card.fixed-card .card-title {
+    font-size: 1.5em; /* Tamaño del título */
+    max-height: 60px; /* Altura máxima para evitar desbordamiento vertical */
+    overflow: hidden; /* Evita desbordamiento vertical */
+    word-wrap: break-word; /* Rompe palabras largas */
+}
+
+.card.fixed-card .description {
+    font-size: 1em; /* Tamaño de la descripción */
+    max-height: 100px; /* Altura máxima para evitar desbordamiento vertical */
+    overflow: hidden; /* Evita desbordamiento vertical */
+    word-wrap: break-word; /* Rompe palabras largas */
 }
