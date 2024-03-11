@@ -471,3 +471,21 @@ footer .donate-button {
         background-position-x: calc(100vw - 800px);
     }
 }
+
+.card-container {
+    display: flex;
+    justify-content: center; /* Align cards horizontally */
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.card.fixed-card {
+    background-color: #CDDBE8;
+    color: black;
+    text-align: center;
+    border: 2px solid #114372;
+    border-radius: 15px;
+    flex: 1; /* Distribute space evenly among card containers */
+    max-width: 300px; /* Adjust maximum width as needed */
+    margin: 0 10px; /* Adjust horizontal margin as needed */
+    padding: 10% 5%; /* Adjust padding as needed */
+}
