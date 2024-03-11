@@ -66,21 +66,22 @@
     <div class="container">
         <h2>Novedades</h2>
         <div class="programas">
-            <div class="carta">
-                <h3>Donación mensual</h3>
-                <p>Es un compromiso de dar una cantidad específica de dinero de forma regular.</p>
-                <button onclick="window.open('info_carta_1', '_blank')">+ Info</button>
-            </div>
-            <div class="carta">
-                <h3>Doná por unica vez</h3>
-                <p>Implica dar una cantidad de dinero de manera puntual, sin un compromiso contínuo.</p>
-                <button onclick="window.open('info_carta_2', '_blank')">+ Info</button>
-            </div>
-            <div class="carta">
-                <h3>Actualizar aporte mensual</h3>
-                <p>Posibilidad de modificar la cantidad o detalles de una donación mensual ya existente.</p>
-                <button onclick="window.open('info_carta_3', '_blank')">+ Info</button>
-            </div>
+            <!-- Itera sobre las publicaciones y muestra cada una en una tarjeta -->
+            <th:block th:each="publicacion : ${publicaciones}">
+                <div class="col-md-4 mb-4">
+                    <div class="card fixed-card">
+                        <img class="img-thumbnail rounded container"
+                             th:src="@{'/media/'+${publicacion.getImagen()}}"
+                             th:alt="${publicacion.getImagen()}"
+                             style="max-width: 50%">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${publicacion.titulo}">Título</h5>
+                            <p class="card-text description" th:text="${publicacion.descripcion}">Descripción</p>
+                            <a th:href="@{/noticias/detallesPublicacion/{id}(id=${publicacion.getId()})}">Más Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
         </div>
     </div>
 </section>
