@@ -1,7 +1,9 @@
 package com.caritas.caritas.model;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -22,6 +24,11 @@ public class Publicacion {
 
     @Column(name = "descripcion")
     private String descripcion;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(name = "fechaEvento")
+    private LocalDate fechaEvento ;
+
 
     @ManyToOne
     @JoinColumn(name = "admin_id")
@@ -73,5 +80,13 @@ public class Publicacion {
 
     public void setAdmin(Admin admin) {
         this.admin = admin;
+    }
+
+    public LocalDate getFechaEvento() {
+        return fechaEvento;
+    }
+
+    public void setFechaEvento(LocalDate fechaEvento) {
+        this.fechaEvento = fechaEvento;
     }
 }

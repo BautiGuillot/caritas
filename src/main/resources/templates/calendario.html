@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Enlace a la versión 5.3.0 de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/stylesCalendar.css">
+    <title>Calendario de Eventos</title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .fixed-card {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .show-more {
+            cursor: pointer;
+            color: blue;
+        }
+
+        .show-more:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/media/caritas-argentina.svg" alt="Caritas Logo" width="30" height="24" class="d-inline-block align-text-top">
+            Caritas
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/home}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/publicacion/new}">Nueva Publicación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/publicacion/calendar}">Calendario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/donantes/detalle?cuentaId=1}">Donantes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index}">Pagina principal</a>
+                </li>
+            </ul>
+        </div>
+        <form action="#" th:action="@{/admin/login}" th:method="post" class="d-flex">
+            <input class="btn btn-warning form-control me-2" type="submit" value="Cerrar sesión" onclick="return confirm('¿Desea cerrar sesión?');">
+        </form>
+    </div>
+</nav>
+
+<h2>Calendario de Eventos</h2>
+
+<!-- Utilizando una tabla para mostrar los eventos -->
+<table class="table">
+    <thead>
+    <tr>
+        <th>Evento</th>
+        <th>Fecha</th>
+        <th>Detalles</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Itera sobre los eventos y construye el HTML -->
+    <tr th:each="evento : ${eventos}" th:data-date="${evento.fechaEvento != null ? evento.fechaEvento : ''}" th:class="${#temporals.format(#temporals.createNow(), 'yyyy-MM-dd') == #temporals.format(evento.fechaEvento, 'yyyy-MM-dd') ? 'highlight current-date' : ''}">
+        <td>
+            <!-- Agrega un cartel "HOY" si la fecha actual coincide con la fecha del evento -->
+            <span th:if="${#temporals.format(#temporals.createNow(), 'yyyy-MM-dd') == #temporals.format(evento.fechaEvento, 'yyyy-MM-dd')}">HOY: </span>
+            <span th:text="${evento.titulo}" th:class="${#temporals.format(#temporals.createNow(), 'yyyy-MM-dd') == #temporals.format(evento.fechaEvento, 'yyyy-MM-dd') ? 'highlight' : ''}"></span>
+        </td>
+        <td th:if="${evento.fechaEvento != null}" th:text="${#temporals.format(evento.fechaEvento, 'yyyy-MM-dd')}"></td>
+        <td>
+            <!-- Agrega un botón que enlace a la página de detalle -->
+            <a th:href="@{/admin/publicacion/detalle/{id}(id=${evento.id})}" class="btn btn-primary">Ver Detalle</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<style>
+    /* Agrega estilo para resaltar el título y el evento actual */
+    .highlight, .current-date {
+        background-color: yellow;
+    }
+
+    /* Agrega estilo para resaltar el evento actual */
+    .current-date {
+        font-weight: bold;
+    }
+</style>
+
+
+
+<script src="/js/calendar.js"></script>
+
+<!-- Enlace al archivo JavaScript de Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
