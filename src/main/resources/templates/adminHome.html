@@ -38,6 +38,7 @@
         .btn {
             margin-right: 5px;
         }
+
     </style>
 </head>
 
@@ -65,12 +66,23 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/}">Pagina principal</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/newAdmin}">Agregar un administrador</a>
+                </li>
             </ul>
+        </div>
+        <div class="container-fluid d-flex justify-content-end">
+            <span class="logged-as text-white me-3">
+                Logueado como <strong th:text="${#authentication.name}"></strong>
+            </span>
         </div>
         <form id="logoutForm" action="#" th:action="@{/logout}" th:method="post" class="d-flex">
             <input id="logoutButton" class="btn btn-warning form-control me-2" type="submit" value="Cerrar sesión"
                    onclick="return confirm('¿Desea cerrar sesión?');">
         </form>
+    </div>
+    <div>
+        <a></a>
     </div>
 </nav>
 

@@ -525,3 +525,31 @@ footer .donate-button {
 .show-more:hover {
     text-decoration: underline;
 }
+
+.publicaciones-container .card.fixed-card .card-title {
+    font-size: 1.5em;
+    max-height: 60px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.publicaciones-container .card.fixed-card .description {
+    font-size: 1em;
+    max-height: 100px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.col-md-4{
+    flex: 0 0 32%;
+    margin-bottom: 20px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.publicaciones-container .card.fixed-card .description {
+    font-size: 1em;
+    max-height: 100px;
+    overflow: hidden;
+    word-wrap: break-word;
+}

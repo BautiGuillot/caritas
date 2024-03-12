@@ -20,26 +20,26 @@
     </div>
 </header>
 
-<div class="container mt-4">
-    <div class="row">
-        <!-- Itera sobre las publicaciones y muestra cada una en una tarjeta -->
-        <th:block th:each="publicacion : ${publicaciones}">
-            <div class="col-md-4 mb-4">
-                <div class="card fixed-card">
-                    <img class="img-thumbnail rounded container"
-                         th:src="@{'/media/'+${publicacion.getImagen()}}"
-                         th:alt="${publicacion.getImagen()}"
-                         style="max-width: 50%">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${publicacion.titulo}">Título</h5>
-                        <p class="card-text description" th:text="${publicacion.descripcion}">Descripción</p>
-                        <a th:href="@{/noticias/detallesPublicacion/{id}(id=${publicacion.getId()})}">Más Detalles</a>
+    <div class="container mt-4 publicaciones-container">
+        <div class="row">
+            <!-- Itera sobre las publicaciones y muestra cada una en una tarjeta -->
+            <th:block th:each="publicacion : ${publicaciones}">
+                <div class="col-md-4 mb-4">
+                    <div class="card fixed-card">
+                        <img class="img-thumbnail rounded container"
+                             th:src="@{'/media/'+${publicacion.getImagen()}}"
+                             th:alt="${publicacion.getImagen()}"
+                             style="max-width: 50%">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${publicacion.titulo}">Título</h5>
+                            <p class="card-text description" th:text="${publicacion.descripcion}">Descripción</p>
+                            <a th:href="@{/noticias/detallesPublicacion/{id}(id=${publicacion.getId()})}">Más Detalles</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </th:block>
+            </th:block>
+        </div>
     </div>
-</div>
 
 
 <script>
@@ -51,6 +51,24 @@
             card.find(".description-more").show();
             $(this).hide();
         });
+    });
+
+</script>
+
+<script>
+    const descriptions = document.querySelectorAll('.card-text.description');
+    const cardTitles = document.querySelectorAll('.card-title');
+
+    descriptions.forEach(description => {
+        if (description.textContent.length > 20) { // Adjust this value as needed
+            description.textContent = description.textContent.substring(0, 20) + '...';
+        }
+    });
+
+    cardTitles.forEach(cardTitle => {
+        if (cardTitle.textContent.length > 20) { // Adjust desiredLength
+            cardTitle.textContent = cardTitle.textContent.substring(0, 15) + '...';
+        }
     });
 </script>
 </body>
