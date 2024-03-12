@@ -160,6 +160,10 @@ header a:hover{
     background-color: #114372;
 }
 
+svg {
+    margin-bottom: -1.5px;
+}
+
 #ultima .container {
     display: flex;
     justify-content: space-between;
