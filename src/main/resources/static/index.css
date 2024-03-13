@@ -79,8 +79,7 @@ button:hover{
 }
 
 .container{
-    max-width: 1400px;
-    margin: auto;
+    width: auto;
 }
 
 .color-acento{ color:rgb(41, 5, 241); }
@@ -270,11 +269,6 @@ iframe {
 
 #que-hacemos h3{
     color: white;
-}
-
-#que-hacemos .container{
-    padding: 100px 12px;
-    padding-top: 100px;
 }
 
 #que-hacemos h2{
@@ -491,7 +485,6 @@ footer .donate-button {
     flex: 1; /* Distribute space evenly among card containers */
     max-width: 300px; /* Adjust maximum width as needed */
     margin: 0 10px; /* Adjust horizontal margin as needed */
-    padding: 10% 5%; /* Adjust padding as needed */
     overflow: hidden; /* Evita que el contenido se desborde */
 }
 

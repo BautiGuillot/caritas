@@ -416,6 +416,9 @@
     <div class="container mt-4">
         <h2>Detalles de la Publicación</h2>
         <h3 th:text="${publicacion.titulo}">Título</h3>
+        <img class="img-thumbnail rounded container"
+             th:src="@{'/media/'+${publicacion.getImagen()}}"
+             th:alt="${publicacion.getImagen()}">
         <p th:text="${publicacion.descripcion}">Descripción</p>
     </div>
 

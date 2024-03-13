@@ -73,8 +73,7 @@
                         <div class="card fixed-card">
                             <img class="img-thumbnail rounded container"
                                  th:src="@{'/media/'+${publicacion.getImagen()}}"
-                                 th:alt="${publicacion.getImagen()}"
-                                 style="max-width: 50%">
+                                 th:alt="${publicacion.getImagen()}">
                             <div class="card-body">
                                 <h5 class="card-title" th:text="${publicacion.titulo}">Título</h5>
                                 <p class="card-text description" th:text="${publicacion.descripcion}">Descripción</p>
