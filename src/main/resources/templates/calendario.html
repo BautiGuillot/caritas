@@ -35,7 +35,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="/media/caritas-argentina.svg" alt="Caritas Logo" width="30" height="24" class="d-inline-block align-text-top">
+            <img src="/media/caritas-argentina.svg" alt="" width="30" height="24"
+                 class="d-inline-block align-text-top">
             Caritas
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -45,25 +46,31 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/admin/home}">Inicio</a>
+                    <a class="nav-link" th:href="@{/adminHome}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/admin/publicacion/new}">Nueva Publicación</a>
+                    <a class="nav-link" th:href="@{/crearPublicacion}">Nueva Publicación</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/admin/publicacion/calendar}">Calendario</a>
+                    <a class="nav-link" th:href="@{/}">Pagina principal</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/admin/donantes/detalle?cuentaId=1}">Donantes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index}">Pagina principal</a>
+                    <a class="nav-link" th:href="@{/newAdmin}">Agregar un administrador</a>
                 </li>
             </ul>
         </div>
-        <form action="#" th:action="@{/admin/login}" th:method="post" class="d-flex">
-            <input class="btn btn-warning form-control me-2" type="submit" value="Cerrar sesión" onclick="return confirm('¿Desea cerrar sesión?');">
+        <div class="container-fluid d-flex justify-content-end">
+            <span class="logged-as text-white me-3">
+                Logueado como <strong th:text="${#authentication.name}"></strong>
+            </span>
+        </div>
+        <form id="logoutForm" action="#" th:action="@{/logout}" th:method="post" class="d-flex">
+            <input id="logoutButton" class="btn btn-warning form-control me-2" type="submit" value="Cerrar sesión"
+                   onclick="return confirm('¿Desea cerrar sesión?');">
         </form>
+    </div>
+    <div>
+        <a></a>
     </div>
 </nav>
 
