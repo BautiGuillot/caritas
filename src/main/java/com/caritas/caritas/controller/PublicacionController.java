@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -63,5 +66,21 @@ public class PublicacionController {
             model.addAttribute("publicacionDetalle",publicacion);
             return "/admin/publicacion/detalle";
         }
+
+    @GetMapping("/calendar")
+    public String showCalendar(Model model) {
+        List<Publicacion> eventos = publicacionService.getAll();
+
+        // Filtra eventos con fechas nulas
+        eventos = eventos.stream()
+                .filter(evento -> evento.getFechaEvento() != null)
+                .collect(Collectors.toList());
+
+        // Ordena eventos por fecha
+        eventos.sort(Comparator.comparing(Publicacion::getFechaEvento));
+
+        model.addAttribute("eventos", eventos);
+        return "/calendario";
+    }
 
 }
