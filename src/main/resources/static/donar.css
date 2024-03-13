@@ -152,6 +152,11 @@ button:hover{
     background-color: rgb(35, 90, 243);
 }
 
+.close-button{
+    color: white;
+    font-weight: bold;
+}
+
 .info-window {
     display: none;
     border-radius: 20px;
@@ -177,7 +182,7 @@ button:hover{
     display: flex;
     right: 5px;
     cursor: pointer;
-    background: rgba(35, 90, 243);
+    background: red;
     border: 2px solid black;
     height: 17px;
     border-radius: 50%;
