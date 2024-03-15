@@ -32,7 +32,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/webjars/**", "/resources/**", "/css/**").permitAll()
                         .requestMatchers("/").permitAll()
-                        .requestMatchers("/adminHome","/crearPublicacion","/editarPublicacion/**","/newAdmin").authenticated()
+                        .requestMatchers("/adminHome/**").authenticated()
                         .requestMatchers("/**").permitAll()
                 )
 
