@@ -61,13 +61,13 @@
                     <a class="nav-link" th:href="@{/adminHome}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/crearPublicacion}">Nueva Publicación</a>
+                    <a class="nav-link" th:href="@{/adminHome/crearPublicacion}">Nueva Publicación</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/}">Pagina principal</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/newAdmin}">Agregar un administrador</a>
+                    <a class="nav-link" th:href="@{/adminHome/newAdmin}">Agregar un administrador</a>
                 </li>
             </ul>
         </div>
@@ -104,7 +104,7 @@
                     <div class="card-footer">
                         <!-- Botones de editar y borrar -->
                         <div class="btn-group" role="group">
-                            <a th:href="@{'/editarPublicacion/' + ${publicacion.getId()}}" class="btn btn-primary btn-sm">Editar</a>
+                            <a th:href="@{'/adminHome/editarPublicacion/' + ${publicacion.getId()}}" class="btn btn-primary btn-sm">Editar</a>
 
                             <a th:href="@{/delete/{id}(id=${publicacion.getId()})}" class="btn btn-danger btn-sm">Borrar</a>
                         </div>

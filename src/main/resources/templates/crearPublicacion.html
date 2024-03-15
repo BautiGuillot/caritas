@@ -30,7 +30,7 @@
                     <a class="nav-link" th:href="@{/adminHome}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/crearPublicacion}">Nueva Publicación</a>
+                    <a class="nav-link" th:href="@{/adminHome/crearPublicacion}">Nueva Publicación</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/}">Pagina principal</a>
@@ -47,7 +47,7 @@
 <div class="container mt-4">
     <h1>Crear Nueva Publicación</h1>
 
-    <form th:action="@{/crearPublicacion}" method="post">
+    <form th:action="@{/adminHome/crearPublicacion}" method="post">
         <div class="form-group">
             <label for="titulo">Título:</label>
             <input type="text" class="form-control" id="titulo" name="titulo" required maxlength="30">

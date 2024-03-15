@@ -49,26 +49,26 @@ public class AdminController {
 
 
     //seccion de crear admin
-    @GetMapping("/newAdmin")
+    @GetMapping("/adminHome/newAdmin")
     public String mostrarFormularioRegistro() {
         return "/newAdmin"; // Debe coincidir con la vista de crearUsuario
     }
 
-    @PostMapping("/newAdmin")
+    @PostMapping("/adminHome/newAdmin")
     public String create(@ModelAttribute Admin administrator) {
         adminService.create(administrator);
-        return "redirect:/login"; /*esto es enviado por url*/
+        return "redirect:/adminHome"; /*esto es enviado por url*/
     }
 
 
 
     //seccion de crear publicacion
-    @GetMapping("/crearPublicacion")
+    @GetMapping("/adminHome/crearPublicacion")
     public String mostrarFormularioPublicacion() {
         return "crearPublicacion";
     }
 
-    @PostMapping("/crearPublicacion")
+    @PostMapping("/adminHome/crearPublicacion")
     public String guardarPublicacion(@ModelAttribute Publicacion publicacion) {
         publicacionService.create(publicacion);
         return "redirect:/adminHome";
@@ -84,7 +84,7 @@ public class AdminController {
         return "redirect:/adminHome";
     }
 
-    @GetMapping("/editarPublicacion/{id}")
+    @GetMapping("/adminHome/editarPublicacion/{id}")
     public String editarPublicacion(@PathVariable Long id, Model model) {
         // Lógica para recuperar la publicación con la ID proporcionada
         // Esto puede incluir una llamada al repositorio para obtener la publicación desde la base de datos
@@ -95,7 +95,7 @@ public class AdminController {
         return "editarPublicacion"; // Devuelve la página de edición con los datos de la publicación
     }
 
-    @PostMapping("/editarPublicacionPost/{id}")
+    @PostMapping("/adminHome/editarPublicacionPost/{id}")
     public String updatePublicacion(@ModelAttribute Publicacion publicacion, @PathVariable("id") Long id, Model model){
         publicacionService.update(publicacion, id);
         return "redirect:/adminHome";

@@ -70,7 +70,7 @@
 <body>
 <div class="container">
     <h1>Editar Publicación</h1>
-    <form th:action="@{'/editarPublicacionPost/' + ${id}}" method="post">
+    <form th:action="@{'/adminHome/editarPublicacionPost/' + ${id}}" method="post">
         <input type="hidden" id="id" name="id" th:value="${publicacion.getId()}">
         <div class="form-group">
             <label for="titulo">Título:</label>
