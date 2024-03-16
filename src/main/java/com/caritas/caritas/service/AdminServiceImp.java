@@ -27,6 +27,7 @@ public class AdminServiceImp implements AdminService{
     }
 
     public void setDefaultPermissions(Admin admin, boolean isAdmin){
+        admin.setEnabledAccount(true);
         admin.setCredentialsExpired(false);
         admin.setExpiredAccount(false);
         admin.setLockedAccount(false);

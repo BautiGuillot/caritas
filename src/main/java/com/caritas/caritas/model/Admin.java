@@ -35,16 +35,16 @@ public class Admin implements UserDetails {
     private boolean isAdmin=false;
 
     @Column(nullable = false)
-    private Boolean enabledAccount = true;
+    private Boolean enabledAccount;
 
     @Column(nullable = false)
-    private Boolean expiredAccount= false;
+    private Boolean expiredAccount;
 
     @Column(nullable = false)
-    private Boolean lockedAccount = false;
+    private Boolean lockedAccount;
 
     @Column(nullable = false)
-    private Boolean credentialsExpired = false;
+    private Boolean credentialsExpired;
 
 
     public Long getId() {
