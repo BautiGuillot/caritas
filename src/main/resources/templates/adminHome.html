@@ -66,8 +66,14 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/}">Pagina principal</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/adminHome/newAdmin}">Agregar un administrador</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  >
+                        Administrar usuarios
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{/adminHome/newAdmin} ">Agregar Usuario</a>
+                        <li><a class="dropdown-item" th:href="@{/adminHome/editAdmin}">Editar Usuarios</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>

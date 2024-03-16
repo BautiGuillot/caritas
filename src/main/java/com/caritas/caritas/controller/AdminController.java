@@ -55,8 +55,8 @@ public class AdminController {
     }
 
     @PostMapping("/adminHome/newAdmin")
-    public String create(@ModelAttribute Admin administrator) {
-        adminService.create(administrator);
+    public String create(@ModelAttribute Admin administrator,@RequestParam(value = "isAdmin", required = false, defaultValue = "false") boolean isAdmin) {
+        adminService.create(administrator,isAdmin);
         return "redirect:/adminHome"; /*esto es enviado por url*/
     }
 

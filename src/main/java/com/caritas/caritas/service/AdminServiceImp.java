@@ -17,12 +17,20 @@ public class AdminServiceImp implements AdminService{
     private AdminRepository repository;
 
     @Override
-    public Admin create(Admin admin) {
+    public Admin create(Admin admin, boolean isAdmin) {
         if (repository.findByEmail(admin.getEmail()) == null) {  //si no existe el usuario lo creo
             admin.setPassword(new BCryptPasswordEncoder().encode(admin.getPassword()));
+            this.setDefaultPermissions(admin,isAdmin);
             repository.save(admin);
         }
         return admin;
+    }
+
+    public void setDefaultPermissions(Admin admin, boolean isAdmin){
+        admin.setCredentialsExpired(false);
+        admin.setExpiredAccount(false);
+        admin.setLockedAccount(false);
+        admin.setAdmin(isAdmin);
     }
 
     @Override
