@@ -60,6 +60,20 @@ public class AdminController {
         return "redirect:/adminHome"; /*esto es enviado por url*/
     }
 
+    //seccion de editar admins
+    @GetMapping("/adminHome/editAdmins")
+    public String mostrarListaAdmins(Model model) {
+        List<Admin> admins = adminService.getAllAdmins();
+        model.addAttribute("admin", admins);
+        return "/editAdmins";
+    }
+
+//    @PostMapping("/adminHome/editAdmins")
+//    public String create(@ModelAttribute Admin administrator,@RequestParam(value = "isAdmin", required = false, defaultValue = "false") boolean isAdmin) {
+//        adminService.create(administrator,isAdmin);
+//        return "redirect:/adminHome"; /*esto es enviado por url*/
+//    }
+
 
 
     //seccion de crear publicacion

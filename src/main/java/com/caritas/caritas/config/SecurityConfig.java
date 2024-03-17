@@ -34,6 +34,8 @@ public class SecurityConfig {
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/adminHome/newAdmin").hasAnyAuthority("ROLE_ADMIN")
                         .requestMatchers("/adminHome/newAdmin/**").hasAnyAuthority("ROLE_ADMIN")
+                        .requestMatchers("/adminHome/editAdmins/**").hasAnyAuthority("ROLE_ADMIN")
+                        .requestMatchers("/adminHome/editAdmins").hasAnyAuthority("ROLE_ADMIN")
                         .requestMatchers("/adminHome/**").authenticated()
                         .requestMatchers("/**").permitAll()
                 )
