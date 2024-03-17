@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Edit Admins</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 40px;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th, .table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        .table th {
+            background-color: #f2f2f2;
+        }
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .button {
+            font-size: 18px;
+            padding: 4px 8px ;
+            margin-left: 10px;
+            height: auto;
+            width: auto;
+            border: 2px solid black;
+            background-color: #007bff;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        Usuarios
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Modificar</th>
+        </tr>
+        </thead>
+        <tbody id="asientos-body">
+        <th:block th:each="admin : ${admins}">
+            <tr>
+                <td th:text="${admin.nombre}"></td>
+                <td th:text="${admin.apellido}"></td>
+                <td th:text="${admin.email}"></td>
+                <td th:text="${admin.rol}"></td> <!-- Assuming you have a field named 'rol' for admin role -->
+                <td>
+                    <a class="button">Editar</a>
+                    <a class="button">Borrar</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

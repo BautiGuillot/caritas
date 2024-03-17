@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import java.util.List;
 
 public interface AdminService extends UserDetailsService{
-    public Admin create(Admin admin);
+    public Admin create(Admin admin,boolean isAdmin);
 
     public List<Admin> getAllAdmins();
 

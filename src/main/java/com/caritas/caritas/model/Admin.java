@@ -31,6 +31,22 @@ public class Admin implements UserDetails {
     @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
     private List<Publicacion> publicaciones;
 
+    @Column
+    private boolean isAdmin=false;
+
+    @Column(nullable = false)
+    private Boolean enabledAccount;
+
+    @Column(nullable = false)
+    private Boolean expiredAccount;
+
+    @Column(nullable = false)
+    private Boolean lockedAccount;
+
+    @Column(nullable = false)
+    private Boolean credentialsExpired;
+
+
     public Long getId() {
         return id;
     }
@@ -75,9 +91,54 @@ public class Admin implements UserDetails {
         this.publicaciones = publicaciones;
     }
 
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    public Boolean getEnabledAccount() {
+        return enabledAccount;
+    }
+
+    public void setEnabledAccount(Boolean enabledAccount) {
+        this.enabledAccount = enabledAccount;
+    }
+
+    public Boolean getExpiredAccount() {
+        return expiredAccount;
+    }
+
+    public void setExpiredAccount(Boolean expiredAccount) {
+        this.expiredAccount = expiredAccount;
+    }
+
+    public Boolean getLockedAccount() {
+        return lockedAccount;
+    }
+
+    public void setLockedAccount(Boolean lockedAccount) {
+        this.lockedAccount = lockedAccount;
+    }
+
+    public Boolean getCredentialsExpired() {
+        return credentialsExpired;
+    }
+
+    public void setCredentialsExpired(Boolean credentialsExpired) {
+        this.credentialsExpired = credentialsExpired;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        if(isAdmin()){
+            return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        }
+        else{
+            return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+        }
     }
 
     public String getPassword() {
@@ -91,22 +152,22 @@ public class Admin implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return !getExpiredAccount();
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return !getLockedAccount();
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return !getCredentialsExpired();
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return getEnabledAccount();
     }
 
 
