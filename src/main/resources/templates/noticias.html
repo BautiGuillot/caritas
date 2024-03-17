@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -9,16 +10,8 @@
 </head>
 
 <body>
-<header>
-    <div class="container">
-        <img src='media/mercedes_lujan_2.jpg' alt="Logo de Cáritas" class="logo-img">
-        <nav>
-            <a href="/">Inicio</a>
-            <a href="/quienes-somos">Quiénes somos</a>
-            <a href="/donar" class="donar-button">Donar aquí</a>
-        </nav>
-    </div>
-</header>
+
+<div th:insert = "~{indexNavbar :: indexNavbar}"></div>
 
     <div class="container mt-4 publicaciones-container">
         <div class="row">

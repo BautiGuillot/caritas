@@ -1,24 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Caritas</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<header>
-    <div class="container">
-        <img src='media/mercedes_lujan_2.jpg' alt="Logo de Cáritas" class="logo-img">
-        <nav>
-            <a href="/quienes-somos">Quiénes somos</a>
-            <a href="#areas-section">Áreas</a>
-            <a href="#que-hacemos">Novedades</a>
-            <a href="/noticias">Noticias</a>
-            <a href="#ultima">Nosotros</a>
-            <a href="/donar" class="donar-button">Donar aquí</a>
-        </nav>
-    </div>
-</header>
+
+<div th:insert = "~{indexNavbar :: indexNavbar}"></div>
 
 <section id="hero">
     <h1>Colaborá con <br>Cáritas</h1>

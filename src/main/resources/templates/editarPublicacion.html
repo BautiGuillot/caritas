@@ -68,6 +68,9 @@
 </head>
 
 <body>
+
+<div th:insert = "~{adminNavbar :: adminNavbar}"></div>
+
 <div class="container">
     <h1>Editar Publicación</h1>
     <form th:action="@{'/adminHome/editarPublicacionPost/' + ${id}}" method="post">

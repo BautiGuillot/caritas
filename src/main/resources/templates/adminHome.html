@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -44,53 +45,7 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="/media/caritas-argentina.svg" alt="" width="30" height="24"
-                 class="d-inline-block align-text-top">
-            Caritas
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/adminHome}">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/adminHome/crearPublicacion}">Nueva Publicación</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/}">Pagina principal</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  >
-                        Administrar usuarios
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/adminHome/newAdmin} ">Agregar Usuario</a>
-                        <li><a class="dropdown-item" th:href="@{/adminHome/editAdmins}">Editar Usuarios</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div class="container-fluid d-flex justify-content-end">
-            <span class="logged-as text-white me-3">
-                Logueado como <strong th:text="${#authentication.name}"></strong>
-            </span>
-        </div>
-        <form id="logoutForm" action="#" th:action="@{/logout}" th:method="post" class="d-flex">
-            <input id="logoutButton" class="btn btn-warning form-control me-2" type="submit" value="Cerrar sesión"
-                   onclick="return confirm('¿Desea cerrar sesión?');">
-        </form>
-    </div>
-    <div>
-        <a></a>
-    </div>
-</nav>
+<div th:insert = "~{adminNavbar :: adminNavbar}"></div>
 
 <div class="container mt-4">
     <div class="row">
