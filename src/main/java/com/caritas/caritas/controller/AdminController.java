@@ -60,11 +60,11 @@ public class AdminController {
         return "redirect:/adminHome"; /*esto es enviado por url*/
     }
 
-    //seccion de editar admins
+    //seccion de editar admins - lista de usuarios
     @GetMapping("/adminHome/editAdmins")
     public String mostrarListaAdmins(Model model) {
         List<Admin> admins = adminService.getAllAdmins();
-        model.addAttribute("admin", admins);
+        model.addAttribute("admins", admins);
         return "/editAdmins";
     }
 
