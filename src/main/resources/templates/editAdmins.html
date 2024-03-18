@@ -87,8 +87,8 @@
                 <td th:text="${admin.email}"></td>
                 <!--<td th:text="${admin.rol}"></td>-->  <!-- Assuming you have a field named 'rol' for admin role -->
                 <td>
-                    <a class="button">Editar</a>
-                    <a class="button">Borrar</a>
+                    <a th:href="@{/adminHome/editarAdmin/{id}(id=${admin.getId()})}" class="button">Editar</a>
+                    <a th:href="@{/adminHome/deleteAdmin/{id}(id=${admin.getId()})}" class="button">Borrar</a>
                 </td>
             </tr>
         </th:block>

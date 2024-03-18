@@ -35,7 +35,6 @@ public class AdminController {
     }
 
 
-
     //seccion de adminHome
     @GetMapping("/adminHome")
     public String index(Model model) {
@@ -47,7 +46,6 @@ public class AdminController {
     }
 
 
-
     //seccion de crear admin
     @GetMapping("/adminHome/newAdmin")
     public String mostrarFormularioRegistro() {
@@ -55,8 +53,8 @@ public class AdminController {
     }
 
     @PostMapping("/adminHome/newAdmin")
-    public String create(@ModelAttribute Admin administrator,@RequestParam(value = "isAdmin", required = false, defaultValue = "false") boolean isAdmin) {
-        adminService.create(administrator,isAdmin);
+    public String create(@ModelAttribute Admin administrator, @RequestParam(value = "isAdmin", required = false, defaultValue = "false") boolean isAdmin) {
+        adminService.create(administrator, isAdmin);
         return "redirect:/adminHome"; /*esto es enviado por url*/
     }
 
@@ -67,12 +65,6 @@ public class AdminController {
         model.addAttribute("admins", admins);
         return "/editAdmins";
     }
-
-//    @PostMapping("/adminHome/editAdmins")
-//    public String create(@ModelAttribute Admin administrator,@RequestParam(value = "isAdmin", required = false, defaultValue = "false") boolean isAdmin) {
-//        adminService.create(administrator,isAdmin);
-//        return "redirect:/adminHome"; /*esto es enviado por url*/
-//    }
 
 
 
@@ -87,7 +79,6 @@ public class AdminController {
         publicacionService.create(publicacion);
         return "redirect:/adminHome";
     }
-
 
 
     //seccion de borrar y editar publicacion
@@ -110,12 +101,31 @@ public class AdminController {
     }
 
     @PostMapping("/adminHome/editarPublicacionPost/{id}")
-    public String updatePublicacion(@ModelAttribute Publicacion publicacion, @PathVariable("id") Long id, Model model){
+    public String updatePublicacion(@ModelAttribute Publicacion publicacion, @PathVariable("id") Long id, Model model) {
         publicacionService.update(publicacion, id);
         return "redirect:/adminHome";
     }
 
 
+    //borrar y editar admin
+    @GetMapping("/adminHome/deleteAdmin/{id}")
+    public String deleteAdmin(@PathVariable Long id) {
+        adminService.delete(id);
+        return "redirect:/adminHome";
+    }
+
+    @GetMapping("/adminHome/editarAdmin/{id}")
+    public String editarAdmin(@PathVariable Long id, Model model) {
+        Admin admin = adminService.findById(id);
+        model.addAttribute("admin", admin);
+        return "editarUsuario";
+    }
+
+    @PostMapping("/adminHome/editarUsuario/{id}")
+    public String updateUsuario(@ModelAttribute Admin admin, @PathVariable("id") Long id, Model model) {
+        adminService.update(admin, id);
+        return "redirect:/adminHome";
+    }
 
 
 }

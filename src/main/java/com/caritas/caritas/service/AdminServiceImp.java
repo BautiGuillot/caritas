@@ -51,4 +51,23 @@ public class AdminServiceImp implements AdminService{
             throw new UsernameNotFoundException("User not found");
         return admin;
     }
+
+    @Override
+    public Admin findById(Long id) {
+        List<Admin> admins = getAllAdmins();
+        for (Admin a: admins){
+            if (a.getId() == id){
+                return a;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void update(Admin admin,Long id) {
+        Admin adminDB = repository.findById(id).get();
+        adminDB.setNombre(admin.getNombre());
+        adminDB.setApellido(admin.getApellido());
+        repository.save(adminDB);
+    }
 }

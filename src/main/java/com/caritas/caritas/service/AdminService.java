@@ -10,4 +10,8 @@ public interface AdminService extends UserDetailsService{
     public List<Admin> getAllAdmins();
 
     public void delete(Long id);
+
+    Admin findById(Long id);
+
+    void update(Admin admin, Long id);
 }
