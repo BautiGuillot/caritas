@@ -133,6 +133,13 @@
             <p>Instrucciones para sumarte.</p>
         </div>
     </div>
+    <div>
+        <h4>Ingresa tu mail para enterarte de las novedades</h4>
+        <form th:action="@{/}" method="post">
+            <input type="email" name="email" placeholder="Email"> <!-- Añade el atributo name, el campo de correo electrónico necesita un atributo name para que Spring pueda vincularlo correctamente al parámetro del método en tu controlador. -->
+            <button type="submit">Enviar</button> <!-- Añade type="submit" para el botón de enviar -->
+        </form>
+    </div>
 </section>
 
 

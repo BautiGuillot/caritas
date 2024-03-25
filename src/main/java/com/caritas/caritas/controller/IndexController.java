@@ -1,13 +1,17 @@
 package com.caritas.caritas.controller;
 
 import com.caritas.caritas.model.Admin;
+import com.caritas.caritas.model.Email;
 import com.caritas.caritas.model.Publicacion;
 import com.caritas.caritas.service.AdminService;
+import com.caritas.caritas.service.EmailService;
 import com.caritas.caritas.service.PublicacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -20,6 +24,9 @@ public class IndexController {
 
         @Autowired
         private AdminService adminService;
+
+        @Autowired
+        private EmailService emailService;
 
     @GetMapping("/")
     public String mostrarListado(Model model) {
@@ -49,7 +56,11 @@ public class IndexController {
             return "donar";
         }
 
-
+        @PostMapping("/")
+        public String subirEmail(String email) {
+            emailService.upload(email);
+            return "redirect:/";
+        }
 
 
 
