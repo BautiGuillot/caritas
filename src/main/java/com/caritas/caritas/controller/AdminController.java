@@ -141,5 +141,11 @@ public class AdminController {
         return "/listaEmailsRegistrados";
     }
 
+    @GetMapping("/adminHome/deleteEmail/{id}")
+    public String deleteEmail(@PathVariable Long id) {
+        emailService.delete(id);
+        return "redirect:/adminHome/listaEmailsRegistrados";
+    }
+
 
 }

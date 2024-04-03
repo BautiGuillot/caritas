@@ -24,4 +24,9 @@ public class EmailServiceImp implements EmailService {
     public List<Email> getAll() {
         return repository.findAll();
     }
+
+    @Override
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
 }

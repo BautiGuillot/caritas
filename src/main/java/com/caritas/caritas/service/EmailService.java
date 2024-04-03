@@ -7,4 +7,6 @@ public interface EmailService {
     void upload(String email);
 
     List<Email> getAll();
+
+    void delete(Long id);
 }
