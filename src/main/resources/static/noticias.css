@@ -393,6 +393,7 @@ footer .donate-button {
     header .container{
         flex-direction: row;
         justify-content: space-between;
+        background-color: white;
     }
 
     header nav{
@@ -497,7 +498,7 @@ footer .donate-button {
 }
 
 .card img {
-    width: 100%;
+    width: auto;
     height: auto;
     border-radius: 5px 5px 0 0;
 }

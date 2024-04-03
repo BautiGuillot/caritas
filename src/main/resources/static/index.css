@@ -470,6 +470,11 @@ footer .donate-button {
     }
 }
 
+.img-thumbnail-rounded-container{
+    max-width: 100%;
+    max-height: 80%;
+}
+
 @media (min-width: 1200px) {
     #como-participar{
         background-position-x: calc(100vw - 800px);
@@ -483,7 +488,7 @@ footer .donate-button {
 }
 
 .card.fixed-card {
-    background-color: #CDDBE8;
+    background-color: #e4e6e8;
     color: black;
     text-align: center;
     border: 2px solid #114372;
@@ -509,7 +514,11 @@ footer .donate-button {
     word-wrap: break-word; /* Rompe palabras largas */
 }
 
-/*css for the newsletter*/
+.card.fixed-card .pin-icon {
+    transform: translate(-24%, -27%);
+    max-width: 25%;
+}
+/*css para el newsletter*/
 
 .newsletter {
     width: 500px;

@@ -91,7 +91,7 @@
                 <td th:text="${email.email}"></td>
 
                 <td>
-                    <a th:href="@{/adminHome/deleteEmail/{id}(id=${email.getId()})}" class="button">Borrar</a>
+                    <a th:href="@{/adminHome/manageUsers/deleteEmail/{id}(id=${email.getId()})}" class="button">Borrar</a>
                 </td>
             </tr>
         </th:block>

@@ -120,11 +120,13 @@ header a:hover{
     header {
         position: fixed;
         width: 100%;
+
     }
 
     header .container {
         flex-direction: row;
         justify-content: space-between;
+        background-color: white;
     }
 
     header nav {
