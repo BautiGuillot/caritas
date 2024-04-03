@@ -50,21 +50,27 @@ public class AdminController {
         return "/adminHome";
     }
 
+    @GetMapping("/adminHome/manageUsers")
+    public String administrarUsuarios(){
+        return  "/manageUsers";
+    }
+
 
     //seccion de crear admin
-    @GetMapping("/adminHome/newAdmin")
+    @GetMapping("/adminHome/manageUsers/newAdmin")
     public String mostrarFormularioRegistro() {
         return "/newAdmin"; // Debe coincidir con la vista de crearUsuario
     }
 
-    @PostMapping("/adminHome/newAdmin")
+    @PostMapping("/adminHome/manageUsers/newAdmin")
     public String create(@ModelAttribute Admin administrator, @RequestParam(value = "isAdmin", required = false, defaultValue = "false") boolean isAdmin) {
         adminService.create(administrator, isAdmin);
         return "redirect:/adminHome"; /*esto es enviado por url*/
     }
 
+
     //seccion de editar admins - lista de usuarios
-    @GetMapping("/adminHome/editAdmins")
+    @GetMapping("/adminHome/manageUsers/editAdmins")
     public String mostrarListaAdmins(Model model) {
         List<Admin> admins = adminService.getAllAdmins();
         model.addAttribute("admins", admins);
@@ -113,20 +119,20 @@ public class AdminController {
 
 
     //borrar y editar admin
-    @GetMapping("/adminHome/deleteAdmin/{id}")
+    @GetMapping("/adminHome/manageUsers/deleteAdmin/{id}")
     public String deleteAdmin(@PathVariable Long id) {
         adminService.delete(id);
         return "redirect:/adminHome";
     }
 
-    @GetMapping("/adminHome/editarAdmin/{id}")
+    @GetMapping("/adminHome/manageUsers/editarAdmin/{id}")
     public String editarAdmin(@PathVariable Long id, Model model) {
         Admin admin = adminService.findById(id);
         model.addAttribute("admin", admin);
         return "editarUsuario";
     }
 
-    @PostMapping("/adminHome/editarUsuario/{id}")
+    @PostMapping("/adminHome/manageUsers/editarUsuario/{id}")
     public String updateUsuario(@ModelAttribute Admin admin, @PathVariable("id") Long id, Model model) {
         adminService.update(admin, id);
         return "redirect:/adminHome";
@@ -134,17 +140,17 @@ public class AdminController {
 
 
     //lista de emails registrados
-    @GetMapping("/adminHome/listaEmailsRegistrados")
+    @GetMapping("/adminHome/manageUsers/listaEmailsRegistrados")
     public String listaEmailsRegistrados(Model model) {
         List<Email> emails = emailService.getAll();
         model.addAttribute("emails", emails);
         return "/listaEmailsRegistrados";
     }
 
-    @GetMapping("/adminHome/deleteEmail/{id}")
+    @GetMapping("/adminHome/manageUsers/deleteEmail/{id}")
     public String deleteEmail(@PathVariable Long id) {
         emailService.delete(id);
-        return "redirect:/adminHome/listaEmailsRegistrados";
+        return "redirect:/adminHome/manageUsers/listaEmailsRegistrados";
     }
 
 

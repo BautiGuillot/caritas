@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrar Usuarios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div th:insert="~{adminNavbar :: adminNavbar}"></div>
+
+<div class="container">
+    <h1>Administrar Usuarios</h1>
+
+    <a href="/adminHome/manageUsers/newAdmin" class="btn btn-primary">
+        <span class="btn-icon">&#128100;</span> Agregar Usuario
+    </a>
+    <br>
+    <br>
+    <a href="/adminHome/manageUsers/editAdmins" class="btn btn-primary">
+        <span class="btn-icon">&#128101;</span> Editar Usuarios
+    </a>
+    <br>
+    <br>
+    <a href="/adminHome/manageUsers/listaEmailsRegistrados" class="btn btn-primary">
+        <span class="btn-icon">&#128231;</span> Lista de suscriptores
+    </a>
+</div>
+
+</body>
+
+</html>

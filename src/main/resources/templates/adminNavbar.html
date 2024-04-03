@@ -28,15 +28,8 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/}">Pagina principal</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  >
-                        Administrar usuarios
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/adminHome/newAdmin} ">Agregar Usuario</a>
-                        <li><a class="dropdown-item" th:href="@{/adminHome/editAdmins}">Editar Usuarios</a></li>
-                        <li><a class="dropdown-item" th:href="@{/adminHome/listaEmailsRegistrados}">Lista de subscriptores</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/adminHome/manageUsers}">Administrar usuarios</a>
                 </li>
             </ul>
         </div>
