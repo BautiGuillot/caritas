@@ -2,8 +2,10 @@ package com.caritas.caritas.controller;
 
 
 import com.caritas.caritas.model.Admin;
+import com.caritas.caritas.model.Email;
 import com.caritas.caritas.model.Publicacion;
 import com.caritas.caritas.service.AdminService;
+import com.caritas.caritas.service.EmailService;
 import com.caritas.caritas.service.PublicacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,9 @@ public class AdminController {
 
     @Autowired
     private PublicacionService publicacionService;
+
+    @Autowired
+    private EmailService emailService;
 
 
     //Seccion de login
@@ -125,6 +130,15 @@ public class AdminController {
     public String updateUsuario(@ModelAttribute Admin admin, @PathVariable("id") Long id, Model model) {
         adminService.update(admin, id);
         return "redirect:/adminHome";
+    }
+
+
+    //lista de emails registrados
+    @GetMapping("/adminHome/listaEmailsRegistrados")
+    public String listaEmailsRegistrados(Model model) {
+        List<Email> emails = emailService.getAll();
+        model.addAttribute("emails", emails);
+        return "/listaEmailsRegistrados";
     }
 
 

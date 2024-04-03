@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mails registrados</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        Mails registrados
+        <br>
+        <a class="button" th:href="@{/adminHome}" >Volver a inicio</a>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Mail</th>
+            <th>Borrar</th>
+        </tr>
+        </thead>
+        <tbody id="asientos-body">
+        <th:block th:each="email : ${emails}">
+            <tr>
+                <td th:text="${email.email}"></td>
+
+                <td>
+<!--                    <a th:href="@{/adminHome/deleteAdmin/{id}(id=${admin.getId()})}" class="button">Borrar</a>-->
+                </td>
+
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

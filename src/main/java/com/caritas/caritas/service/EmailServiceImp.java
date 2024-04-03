@@ -4,6 +4,7 @@ import com.caritas.caritas.model.Email;
 import com.caritas.caritas.repository.EmailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class EmailServiceImp implements EmailService {
@@ -17,5 +18,10 @@ public class EmailServiceImp implements EmailService {
         Email emailDB = new Email();
         emailDB.setEmail(email);
         repository.save(emailDB);
+    }
+
+    @Override
+    public List<Email> getAll() {
+        return repository.findAll();
     }
 }
