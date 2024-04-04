@@ -88,7 +88,8 @@
                 <td th:text="${admin.admin} ? 'Administrador' : 'Publicador'" />
                 <td>
                     <a th:href="@{/adminHome/manageUsers/editarAdmin/{id}(id=${admin.getId()})}" class="button">Editar</a>
-                    <a th:href="@{/adminHome/manageUsers/deleteAdmin/{id}(id=${admin.getId()})}" class="button">Borrar</a>
+                    <a th:href="@{/adminHome/manageUsers/deleteAdmin/{id}(id=${admin.getId()})}" class="button" onclick="return confirm('¿Estás seguro de que deseas borrar este usuario?')">Borrar</a>
+                </td>
                 </td>
             </tr>
         </th:block>

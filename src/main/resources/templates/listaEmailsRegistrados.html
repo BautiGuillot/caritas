@@ -91,7 +91,7 @@
                 <td th:text="${email.email}"></td>
 
                 <td>
-                    <a th:href="@{/adminHome/manageUsers/deleteEmail/{id}(id=${email.getId()})}" class="button">Borrar</a>
+                    <a th:href="@{/adminHome/manageUsers/deleteEmail/{id}(id=${email.getId()})}" class="button" onclick="return confirm('¿Estás seguro de que deseas borrar el email?')">Borrar</a>
                 </td>
             </tr>
         </th:block>

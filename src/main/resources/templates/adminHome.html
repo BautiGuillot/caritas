@@ -66,8 +66,7 @@
                         <!-- Botones de editar y borrar -->
                         <div class="btn-group" role="group">
                             <a th:href="@{'/adminHome/editarPublicacion/' + ${publicacion.getId()}}" class="btn btn-primary btn-sm">Editar</a>
-
-                            <a th:href="@{/delete/{id}(id=${publicacion.getId()})}" class="btn btn-danger btn-sm">Borrar</a>
+                            <a th:href="@{/delete/{id}(id=${publicacion.getId()})}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas borrar esta publicacion?')">Borrar</a>
                         </div>
                     </div>
                 </div>
