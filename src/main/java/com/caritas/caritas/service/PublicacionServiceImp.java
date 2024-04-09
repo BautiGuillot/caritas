@@ -13,6 +13,9 @@ import java.util.List;
 public class PublicacionServiceImp implements PublicacionService {
 
     @Autowired
+    private EmailServiceImp emailServiceImp;
+
+    @Autowired
     private PublicacionRepository repository;
 
     @Override
@@ -23,6 +26,7 @@ public class PublicacionServiceImp implements PublicacionService {
     @Override
     public void create(Publicacion publicacion) {
         publicacion.setReciclada(false);
+        emailServiceImp.notifySuscribers(publicacion.getTitulo());
         repository.save(publicacion);
     }
 

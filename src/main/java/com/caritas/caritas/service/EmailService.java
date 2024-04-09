@@ -9,4 +9,6 @@ public interface EmailService {
     List<Email> getAll();
 
     void delete(Long id);
+
+    void sendEmail(String toEmail, String subject, String body);
 }
