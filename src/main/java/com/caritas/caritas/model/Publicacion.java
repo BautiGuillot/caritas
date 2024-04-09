@@ -24,7 +24,7 @@ public class Publicacion {
     private String descripcion;
 
     @Column(name = "reciclada")
-    private boolean reciclada = false;
+    private boolean reciclada;
 
     @ManyToOne
     @JoinColumn(name = "admin_id")

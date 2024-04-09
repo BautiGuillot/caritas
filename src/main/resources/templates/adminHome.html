@@ -59,7 +59,7 @@
             <div class="row">
                 <!-- Itera sobre las publicaciones y muestra cada una en una tarjeta -->
                 <th:block th:each="publicacion : ${publicaciones}">
-                    <div class="col-md-4 mb-4" th:if="${!publicacion.isReciclada()}">
+                    <div class="col-md-4 mb-4">
                         <div class="card fixed-card">
                             <img class="img-thumbnail rounded container"
                                  th:src="@{'/media/'+${publicacion.getImagen()}}"

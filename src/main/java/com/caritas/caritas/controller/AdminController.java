@@ -45,7 +45,7 @@ public class AdminController {
     public String index(Model model) {
         List<Admin> admins = adminService.getAllAdmins();
         model.addAttribute("admin", admins);
-        List<Publicacion> publicaciones = publicacionService.getAll();
+        List<Publicacion> publicaciones = publicacionService.getPublicacionesCorrectas();
         model.addAttribute("publicaciones", publicaciones);
         return "/adminHome";
     }
@@ -96,7 +96,7 @@ public class AdminController {
 
     @GetMapping("/delete/{id}")
     public String deletePublicacion(@PathVariable Long id) {
-        publicacionService.delete(id);
+        publicacionService.reciclarPublicacion(id);
         return "redirect:/adminHome";
     }
 
@@ -155,9 +155,15 @@ public class AdminController {
 
     @GetMapping("/adminHome/papelera")
     public String publicacionesBorradas(Model model){
-        List<Publicacion> publicaciones = publicacionService.getAll();
+        List<Publicacion> publicaciones = publicacionService.getPublicacionesBorradas();
         model.addAttribute("publicaciones", publicaciones);
         return "/papelera";
+    }
+
+    @GetMapping("/adminHome/papelera/restore/{id}")
+    public String restorePublicacion(@PathVariable Long id){
+        publicacionService.restorePublicacion(id);
+        return "redirect:/adminHome/papelera";
     }
 
 

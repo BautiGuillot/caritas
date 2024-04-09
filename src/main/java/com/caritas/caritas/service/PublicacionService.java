@@ -14,5 +14,14 @@ public interface PublicacionService {
 
     Publicacion findById(Long id);
 
-    List<Publicacion> getPublicacionesRecientes();
+    List<Publicacion> getPublicacionesCorrectas();
+
+    List<Publicacion> getPublicacionesBorradas();
+
+    void reciclarPublicacion(Long id);
+
+    void restorePublicacion(Long id);
+
+    List<Publicacion> getUltimas3PublicacionesCorrectas();
+
 }

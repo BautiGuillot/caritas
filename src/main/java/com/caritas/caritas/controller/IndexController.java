@@ -33,16 +33,9 @@ public class IndexController {
         List<Admin> admins = adminService.getAllAdmins();
         model.addAttribute("admin", admins);
 
-        // Obtener las últimas 3 publicaciones
-        List<Publicacion> publicaciones = publicacionService.getAll();
-        int totalPublicaciones = publicaciones.size();
-        int indiceInicio = totalPublicaciones - 3;
-        if (indiceInicio < 0) {
-            indiceInicio = 0;
-        }
-        List<Publicacion> ultimasPublicaciones = publicaciones.subList(indiceInicio, totalPublicaciones);
-
-        model.addAttribute("publicaciones", ultimasPublicaciones);
+        //cargar las ultimas 3 publicaciones
+        List<Publicacion> publicaciones = publicacionService.getUltimas3PublicacionesCorrectas();
+        model.addAttribute("publicaciones", publicaciones);
         return "index";
     }
 

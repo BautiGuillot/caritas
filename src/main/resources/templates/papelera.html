@@ -51,7 +51,7 @@
         <div class="row">
             <!-- Itera sobre las publicaciones y muestra cada una en una tarjeta -->
             <th:block th:each="publicacion : ${publicaciones}">
-                <div class="col-md-4 mb-4" th:if="${publicacion.isReciclada()}">
+                <div class="col-md-4 mb-4" >
                     <div class="card fixed-card">
                         <img class="img-thumbnail rounded container"
                              th:src="@{'/media/'+${publicacion.getImagen()}}"
@@ -66,7 +66,7 @@
                             <!-- Botones de editar y borrar -->
                             <div class="btn-group" role="group">
                                 <a th:href="@{'/adminHome/editarPublicacion/' + ${publicacion.getId()}}" class="btn btn-primary btn-sm">Editar</a>
-                                <a th:href="@{/delete/{id}(id=${publicacion.getId()})}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas borrar esta publicacion?')">Borrar</a>
+                                <a th:href="@{'/adminHome/papelera/restore/' + ${publicacion.getId()}}" class="btn btn-success btn-sm">Restaurar</a>
                             </div>
                         </div>
                     </div>

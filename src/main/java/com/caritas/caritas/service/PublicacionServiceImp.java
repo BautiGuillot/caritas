@@ -5,9 +5,8 @@ import com.caritas.caritas.model.Publicacion;
 import com.caritas.caritas.repository.PublicacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -23,6 +22,7 @@ public class PublicacionServiceImp implements PublicacionService {
 
     @Override
     public void create(Publicacion publicacion) {
+        publicacion.setReciclada(false);
         repository.save(publicacion);
     }
 
@@ -51,17 +51,54 @@ public class PublicacionServiceImp implements PublicacionService {
     }
 
     @Override
-    public List<Publicacion> getPublicacionesRecientes() {
-        LocalDate fechaActual = LocalDate.now();
-        LocalDate fechaDosDiasAntes = fechaActual.minus(2, ChronoUnit.DAYS);
-
-        List<Publicacion> publicacionesRecientes = repository.findPublicacionesRecientes(fechaDosDiasAntes, fechaActual);
-
-        if (publicacionesRecientes.size() >= 3) {
-
-            return publicacionesRecientes.subList(0, 3);
-        } else {
-            return publicacionesRecientes;
+    public List<Publicacion> getPublicacionesCorrectas() {
+        List<Publicacion> publicaciones = this.getAll();
+        List<Publicacion> publicacionesCorrectas = new ArrayList<>();
+        for(Publicacion p : publicaciones){
+            if(!p.isReciclada()){
+                publicacionesCorrectas.add(p);
+            }
         }
+        return publicacionesCorrectas;
+
+    }
+
+    public List<Publicacion> getPublicacionesBorradas(){
+        List<Publicacion> publicaciones = this.getAll();
+        List<Publicacion> publicacionesBorradas = new ArrayList<>();
+        for(Publicacion p : publicaciones){
+            if(p.isReciclada()){
+                publicacionesBorradas.add(p);
+            }
+        }
+        return publicacionesBorradas;
+    }
+
+    public void reciclarPublicacion(Long id){
+        Publicacion publicacion = this.findById(id);
+        publicacion.setReciclada(true);
+        this.update(publicacion, id);
+    }
+
+    public void restorePublicacion(Long id){
+        Publicacion publicacion = this.findById(id);
+        publicacion.setReciclada(false);
+        this.update(publicacion, id);
+    }
+
+
+    @Override
+    public List<Publicacion> getUltimas3PublicacionesCorrectas() {
+        List<Publicacion> publicaciones = this.getPublicacionesCorrectas();
+        int totalPublicaciones = publicaciones.size();
+        int indiceInicio = totalPublicaciones - 3;
+        if (indiceInicio < 0) {
+            indiceInicio = 0;
+        }
+
+        List<Publicacion> ultimas3Publicaciones = publicaciones.subList(indiceInicio, totalPublicaciones);
+        Collections.reverse(ultimas3Publicaciones); // Invertir el orden de las publicaciones
+
+        return ultimas3Publicaciones;
     }
 }
