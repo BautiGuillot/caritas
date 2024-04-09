@@ -58,7 +58,7 @@
         <div class="programas">
             <!-- Itera sobre las publicaciones y muestra cada una en una tarjeta -->
             <th:block th:each="publicacion : ${publicaciones}">
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4" th:if="${!publicacion.isReciclada()}">
                     <div class="card-container">
                         <div class="card fixed-card">
                             <img class="pin-icon" src="media/Red-Pin.png">

@@ -153,5 +153,12 @@ public class AdminController {
         return "redirect:/adminHome/manageUsers/listaEmailsRegistrados";
     }
 
+    @GetMapping("/adminHome/papelera")
+    public String publicacionesBorradas(Model model){
+        List<Publicacion> publicaciones = publicacionService.getAll();
+        model.addAttribute("publicaciones", publicaciones);
+        return "/papelera";
+    }
+
 
 }

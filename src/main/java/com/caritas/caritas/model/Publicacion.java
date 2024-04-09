@@ -23,6 +23,9 @@ public class Publicacion {
     @Column(name = "descripcion")
     private String descripcion;
 
+    @Column(name = "reciclada")
+    private boolean reciclada = false;
+
     @ManyToOne
     @JoinColumn(name = "admin_id")
     private Admin admin;
@@ -65,6 +68,14 @@ public class Publicacion {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public boolean isReciclada() {
+        return reciclada;
+    }
+
+    public void setReciclada(boolean reciclada) {
+        this.reciclada = reciclada;
     }
 
     public Admin getAdmin() {

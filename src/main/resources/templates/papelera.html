@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papelera de reciclaje</title>
+    <!-- Enlace al CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .fixed-card {
+            height: auto;
+            overflow: hidden;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        .card-footer {
+            background-color: #fff;
+            border-top: 1px solid #ced4da;
+            padding: 0.75rem 1.25rem;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            margin-right: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div th:insert = "~{adminNavbar :: adminNavbar}"></div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Itera sobre las publicaciones y muestra cada una en una tarjeta -->
+            <th:block th:each="publicacion : ${publicaciones}">
+                <div class="col-md-4 mb-4" th:if="${publicacion.isReciclada()}">
+                    <div class="card fixed-card">
+                        <img class="img-thumbnail rounded container"
+                             th:src="@{'/media/'+${publicacion.getImagen()}}"
+                             th:alt="${publicacion.getImagen()}"
+                             style="max-width: 100%">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3" th:text="${publicacion.titulo}">Título</h5>
+                            <p class="card-text description" th:text="${publicacion.descripcion}">Descripción</p>
+                            <p class="card-text description-more" style="display: none;"></p>
+                        </div>
+                        <div class="card-footer">
+                            <!-- Botones de editar y borrar -->
+                            <div class="btn-group" role="group">
+                                <a th:href="@{'/adminHome/editarPublicacion/' + ${publicacion.getId()}}" class="btn btn-primary btn-sm">Editar</a>
+                                <a th:href="@{/delete/{id}(id=${publicacion.getId()})}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas borrar esta publicacion?')">Borrar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $(".show-more").on("click", function () {
+                var card = $(this).closest(".card");
+                card.find(".description").hide();
+                card.find(".description-more").text(card.find(".description").text());
+                card.find(".description-more").show();
+                $(this).hide();
+            });
+        });
+    </script>
+
+    <script>
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            console.log('Logout button clicked!');
+            document.cookie = "JSESSIONID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        });
+    </script>
+</body>
+
+</html>
