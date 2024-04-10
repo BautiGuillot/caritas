@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter</title>
+    <style>
+        .red {
+            color: #E51742;
+        }
+
+        .blue {
+            color: #114372;
+        }
+
+        .white {
+            color: #ffffff;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #114372;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #E51742;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #ff345e;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="red">Últimas Noticias y Actualizaciones!</h1>
+    <p class="blue">Querido Suscriptor/a,</p>
+    <p>¡Estamos emocionados de compartir con vos las últimas noticias y actualizaciones de la diócesis!.</p>
+    <h2 class="red" th:text="${titulo}"></h2>
+    <h3 class="blue" th:text="${cuerpo}"></h3>
+    <p><a href="http://localhost:8080/#que-hacemos" class="button">Leer Más</a></p>
+    <p>¡Gracias por ser parte de nuestra comunidad!</p>
+    <p class="blue">Atentamente,<br>Cáritas Mercedes/Luján</p>
+</div>
+</body>
+</html>

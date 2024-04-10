@@ -26,7 +26,7 @@ public class PublicacionServiceImp implements PublicacionService {
     @Override
     public void create(Publicacion publicacion) {
         publicacion.setReciclada(false);
-        emailServiceImp.notifySuscribers(publicacion.getTitulo());
+        emailServiceImp.notifySuscribers(publicacion.getTitulo(),publicacion.getDescripcion());
         repository.save(publicacion);
     }
 
