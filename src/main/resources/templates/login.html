@@ -7,10 +7,95 @@
     <title>Página de Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="shortcut icon" href="/media/mercedes_lujan_2.jpg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 350px;
+        }
+
+        .card img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .card h5 {
+            color: #001C55;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            color: #001C55;
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .btn {
+            background-color: rgba(35, 90, 243, 0.67);
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #003d99;
+            color: #ffffff;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .bg-image{
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            display: block;
+            background-image: url('/media/bg.png');
+            width: 100%;
+            height: 100%;
+            background-size: cover; /* Scale the background image to cover the entire container */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+            -webkit-filter: blur(3px);
+            -moz-filter: blur(3px);
+            -o-filter: blur(3px);
+            -ms-filter: blur(3px);
+            filter: blur(3px);
+        }
+    </style>
 
 </head>
 
-<body style="background-image: linear-gradient(to bottom, #001C55, #A1B7F7);">
+<body>
+
+<div class="bg-image" ></div>
 
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="card shadow text-center" style="width: 400px; border: none;">
@@ -24,13 +109,13 @@
             <form th:action="@{/login}" method="post">
                 <div class="form-group">
                     <label for="email">Correo electrónico</label>
-                    <input type="email" class="form-control" id="email" name="username" placeholder="example@example.com">
+                    <input type="email" class="form-control" id="email" name="username" placeholder="ejemplo@dominio.com">
                 </div>
                 <div class="form-group">
                     <label for="password">Contraseña</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="*********">
                 </div>
-                <button type="submit" class="btn" value="Ingresar" style="background-color: #A1B7F7; border-bottom: #A1B7F7;">Iniciar sesión</button>
+                <button type="submit" class="btn" value="Ingresar">Iniciar sesión</button>
             </form>
             <br>
             <div th:if="${param.error}">
