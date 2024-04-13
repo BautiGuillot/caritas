@@ -127,6 +127,7 @@ header a:hover{
         flex-direction: row;
         justify-content: space-between;
         background-color: white;
+        min-width: fit-content;
     }
 
     header nav {

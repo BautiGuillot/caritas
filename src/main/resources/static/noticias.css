@@ -104,7 +104,8 @@ header .container{
     flex-direction: column;
     align-items: center;
     position: fixed;
-    top: 0; /* Stick to the top of the page */
+    top: 0;
+    min-width: fit-content;
 }
 
 header nav{
