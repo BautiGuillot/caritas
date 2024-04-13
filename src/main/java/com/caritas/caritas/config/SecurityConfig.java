@@ -1,5 +1,7 @@
 package com.caritas.caritas.config;
 
+import com.caritas.caritas.handlers.CustomLoginFailureHandler;
+import com.caritas.caritas.handlers.CustomLoginSuccessHandler;
 import com.caritas.caritas.service.AdminServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -25,6 +27,12 @@ public class SecurityConfig {
     }
 
 
+    @Autowired
+    private CustomLoginFailureHandler loginFailureHandler;
+
+    @Autowired
+    private CustomLoginSuccessHandler loginSuccessHandler;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -39,6 +47,9 @@ public class SecurityConfig {
 
                 .formLogin((form) -> form
                         .loginPage("/login")
+                        .usernameParameter("username")
+                        .failureHandler(loginFailureHandler)
+                        .successHandler(loginSuccessHandler)
                         .defaultSuccessUrl("/adminHome")
                         .permitAll()
                 )

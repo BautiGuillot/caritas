@@ -123,6 +123,11 @@
                     Credenciales incorrectas. Inténtalo nuevamente.</p>
             </div>
 
+            <div th:if="${param.error}">
+                <p style="color: red;">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+            </div>
+        </div>
+
         </div>
     </div>
 </div>

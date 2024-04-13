@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -45,6 +46,12 @@ public class Admin implements UserDetails {
 
     @Column(nullable = false)
     private Boolean credentialsExpired;
+
+    @Column(name = "intentos_fallidos")
+    private int failedAttempt;
+
+    @Column(name = "tiempo_bloqueado")
+    private Date lockTime;
 
 
     public Long getId() {
@@ -129,6 +136,22 @@ public class Admin implements UserDetails {
 
     public void setCredentialsExpired(Boolean credentialsExpired) {
         this.credentialsExpired = credentialsExpired;
+    }
+
+    public int getFailedAttempt() {
+        return failedAttempt;
+    }
+
+    public void setFailedAttempt(int failedAttempt) {
+        this.failedAttempt = failedAttempt;
+    }
+
+    public Date getLockTime() {
+        return lockTime;
+    }
+
+    public void setLockTime(Date lockTime) {
+        this.lockTime = lockTime;
     }
 
     @Override
