@@ -56,6 +56,7 @@ public class AdminController {
     }
 
 
+
     //seccion de crear admin
     @GetMapping("/adminHome/manageUsers/newAdmin")
     public String mostrarFormularioRegistro() {
@@ -67,6 +68,7 @@ public class AdminController {
         adminService.create(administrator, isAdmin);
         return "redirect:/adminHome"; /*esto es enviado por url*/
     }
+
 
 
     //seccion de editar admins - lista de usuarios
@@ -92,12 +94,32 @@ public class AdminController {
     }
 
 
+
     //seccion de borrar y editar publicacion
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")         //la agregamos a la papelera
     public String deletePublicacion(@PathVariable Long id) {
         publicacionService.reciclarPublicacion(id);
         return "redirect:/adminHome";
+    }
+
+    @GetMapping("/adminHome/papelera/delete/{id}")        //la borramos definitivamente
+    public String deletePublicacionPapelera(@PathVariable Long id) {
+        publicacionService.delete(id);
+        return "redirect:/adminHome/papelera";
+    }
+
+    @GetMapping("/adminHome/papelera")
+    public String publicacionesBorradas(Model model){
+        List<Publicacion> publicaciones = publicacionService.getPublicacionesBorradas();
+        model.addAttribute("publicaciones", publicaciones);
+        return "/papelera";
+    }
+
+    @GetMapping("/adminHome/papelera/restore/{id}")       //restauramos la publicacion
+    public String restorePublicacion(@PathVariable Long id){
+        publicacionService.restorePublicacion(id);
+        return "redirect:/adminHome/papelera";
     }
 
     @GetMapping("/adminHome/editarPublicacion/{id}")
@@ -116,6 +138,7 @@ public class AdminController {
         publicacionService.update(publicacion, id);
         return "redirect:/adminHome";
     }
+
 
 
     //borrar y editar admin
@@ -139,6 +162,7 @@ public class AdminController {
     }
 
 
+
     //lista de emails registrados
     @GetMapping("/adminHome/manageUsers/listaEmailsRegistrados")
     public String listaEmailsRegistrados(Model model) {
@@ -153,18 +177,7 @@ public class AdminController {
         return "redirect:/adminHome/manageUsers/listaEmailsRegistrados";
     }
 
-    @GetMapping("/adminHome/papelera")
-    public String publicacionesBorradas(Model model){
-        List<Publicacion> publicaciones = publicacionService.getPublicacionesBorradas();
-        model.addAttribute("publicaciones", publicaciones);
-        return "/papelera";
-    }
 
-    @GetMapping("/adminHome/papelera/restore/{id}")
-    public String restorePublicacion(@PathVariable Long id){
-        publicacionService.restorePublicacion(id);
-        return "redirect:/adminHome/papelera";
-    }
 
 
 }

@@ -77,6 +77,7 @@
                             <div class="btn-group" role="group">
                                 <a th:href="@{'/adminHome/editarPublicacion/' + ${publicacion.getId()}}" class="btn btn-primary btn-sm">Editar</a>
                                 <a th:href="@{'/adminHome/papelera/restore/' + ${publicacion.getId()}}" class="btn btn-success btn-sm">Restaurar</a>
+                                <a th:href="@{'/adminHome/papelera/delete/' + ${publicacion.getId()}}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas borrar esta publicación definitivamente?')">Eliminar</a>
                             </div>
                         </div>
                     </div>
