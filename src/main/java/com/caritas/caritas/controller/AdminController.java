@@ -39,6 +39,16 @@ public class AdminController {
         return "redirect:/adminHome"; // Redirige al usuario a la página de inicio después del inicio de sesión exitoso
     }
 
+    @GetMapping("/loginError")
+    public String loginErrorGet() {
+        return "/loginError";
+    }
+
+    @PostMapping("/loginError")
+    public String loginErrorPost() {
+        return "redirect:/loginError";
+    }
+
 
     //seccion de adminHome
     @GetMapping("/adminHome")
@@ -156,8 +166,8 @@ public class AdminController {
     }
 
     @PostMapping("/adminHome/manageUsers/editarUsuario/{id}")
-    public String updateUsuario(@ModelAttribute Admin admin, @PathVariable("id") Long id, Model model) {
-        adminService.update(admin, id);
+    public String updateUsuario(@ModelAttribute Admin admin, @PathVariable("id") Long id, Model model,@RequestParam(value = "locked", required = false, defaultValue = "false") boolean locked) {
+        adminService.update(admin, id, locked);
         return "redirect:/adminHome";
     }
 

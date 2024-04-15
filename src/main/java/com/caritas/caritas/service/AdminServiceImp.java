@@ -50,10 +50,14 @@ public class AdminServiceImp implements AdminService{
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Admin admin = repository.findByEmail(username);
-        if (admin == null)
-            throw new UsernameNotFoundException("User not found");
-        return admin;
+        try {
+            Admin admin = repository.findByEmail(username);
+            if (admin == null)
+                throw new UsernameNotFoundException("Usuario no encontrado");
+            return admin;
+        } catch (Exception e) {
+            throw new UsernameNotFoundException("Ocurrió un error al obtener los datos del Usuario, es posible que no exista", e);
+        }
     }
 
     @Override
@@ -68,10 +72,19 @@ public class AdminServiceImp implements AdminService{
     }
 
     @Override
-    public void update(Admin admin,Long id) {
+    public void update(Admin admin,Long id , boolean locked) {
         Admin adminDB = repository.findById(id).get();
         adminDB.setNombre(admin.getNombre());
         adminDB.setApellido(admin.getApellido());
+        if(locked){
+            lock(adminDB);
+            System.out.println("--------------Usuario "+adminDB.getEmail()+" fue bloqueado--------------------");
+        }else{
+            adminDB.setLockedAccount(false);
+            adminDB.setLockTime(null);
+            adminDB.setFailedAttempt(0);
+            System.out.println("--------------Usuario "+adminDB.getEmail()+" fue desbloqueado--------------------");
+        }
         repository.save(adminDB);
     }
 

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page</title>
+    <link href="error.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="error-container">
+    <h1>Ups! Parece que algo salió mal</h1>
+    <p>No fue posible acceder a la página.</p>
+    <p>Puede ser que no escribiste bien el mail con el que te registraste.</p>
+    <p>O tambien puede ser que tras varios intentos fallidos tu usuario se bloqueó de forma automática.</p>
+    <p>Ante la duda, por favor contactá al administrador del sitio.</p>
+    <p>Probá tratando de ingresar de nuevo a <a th:href="@{/login}">Login</a>.</p>
+</div>
+
+</body>
+</html>

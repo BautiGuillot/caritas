@@ -25,7 +25,7 @@ public interface AdminService extends UserDetailsService{
 
     Admin findById(Long id);
 
-    void update(Admin admin, Long id);
+    void update(Admin admin, Long id, boolean locked);
 
     public void increaseFailedAttempts(Admin admin);
 

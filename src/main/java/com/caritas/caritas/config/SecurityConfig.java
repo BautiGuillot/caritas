@@ -51,6 +51,7 @@ public class SecurityConfig {
                         .failureHandler(loginFailureHandler)
                         .successHandler(loginSuccessHandler)
                         .defaultSuccessUrl("/adminHome")
+                        .failureUrl("/loginError")
                         .permitAll()
                 )
 
