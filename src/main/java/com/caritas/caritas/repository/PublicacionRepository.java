@@ -10,6 +10,4 @@ import java.util.List;
 @Repository
 public interface PublicacionRepository extends JpaRepository<Publicacion,Long> {
 
-    @Query("SELECT p FROM Publicacion p WHERE p.fecha BETWEEN :startDate AND :endDate ORDER BY p.fecha DESC")
-    List<Publicacion> findPublicacionesRecientes(LocalDate startDate, LocalDate endDate);
 }

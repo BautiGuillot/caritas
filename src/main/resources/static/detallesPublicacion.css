@@ -1,0 +1,148 @@
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(Fonts/GothamMedium.ttf) format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url(Fonts/GothamBold.ttf) format('truetype');
+    font-weight: bold;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+svg{
+    position: absolute;
+    bottom: 0;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 15%;
+    height: auto;
+    margin-right: 10px;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Gotham', sans-serif;
+    margin: 0;
+}
+
+h2{ font-size: 2.7em;
+    font-family: 'Gotham';
+    font-weight: normal;
+}
+
+
+.container {
+    margin-top: 10px; /* Ajustar este valor según sea necesario */
+    background-color: #f5f5f5; /* Fondo crema */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+h2 {
+    font-family: "Arial", sans-serif; /* Fuente sans-serif para titulares */
+    font-weight: bold;
+    color: #333; /* Texto negro */
+}
+
+h3 {
+    font-family: "Times New Roman", serif; /* Fuente serif para subtitulares */
+    color: #333; /* Texto negro */
+}
+
+p {
+    font-family: "Arial", sans-serif; /* Fuente sans-serif para texto principal */
+    color: #555; /* Texto gris oscuro */
+}
+
+.img-thumbnail {
+    width: 700px; /* Ancho fijo */
+    height: auto; /* Altura ajustada automáticamente para mantener la proporción */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.color-acento{ color:rgb(41, 5, 241); }
+
+header{
+    background-color: #fefefe;
+    z-index: 1000;
+    padding-bottom: 15px;
+    padding-top: 15px;
+
+}
+
+header .logo{
+    margin: 0;
+    padding: 15px 20px;
+    font-weight: bold;
+    color: rgb(41, 5, 241);
+    font-size: 1.6em;
+}
+
+header .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header nav{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+header a{
+    padding: 5px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0,0.3 );
+}
+
+.donar-button{
+    color:#E51742;
+}
+
+header a:hover{
+    color: rgb(41, 5, 241);
+}
+
+@media (min-width: 850px) {
+    header {
+        position: fixed;
+        width: 100%;
+
+    }
+
+    header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: white;
+        min-width: fit-content;
+    }
+
+    header nav {
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 20px;
+    }
+
+}

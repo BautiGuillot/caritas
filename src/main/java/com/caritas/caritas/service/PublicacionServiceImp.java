@@ -63,6 +63,7 @@ public class PublicacionServiceImp implements PublicacionService {
                 publicacionesCorrectas.add(p);
             }
         }
+        Collections.reverse(publicacionesCorrectas);
         return publicacionesCorrectas;
 
     }
@@ -94,15 +95,14 @@ public class PublicacionServiceImp implements PublicacionService {
     @Override
     public List<Publicacion> getUltimas3PublicacionesCorrectas() {
         List<Publicacion> publicaciones = this.getPublicacionesCorrectas();
-        int totalPublicaciones = publicaciones.size();
-        int indiceInicio = totalPublicaciones - 3;
-        if (indiceInicio < 0) {
-            indiceInicio = 0;
+        List<Publicacion> ultimas3Publicaciones = new ArrayList<>();
+        if(publicaciones.size() <= 3){
+            return publicaciones;
+        }else{
+            for(int i = 0; i < 3; i++){
+                ultimas3Publicaciones.add(publicaciones.get(i));
+            }
+            return ultimas3Publicaciones;
         }
-
-        List<Publicacion> ultimas3Publicaciones = publicaciones.subList(indiceInicio, totalPublicaciones);
-        Collections.reverse(ultimas3Publicaciones); // Invertir el orden de las publicaciones
-
-        return ultimas3Publicaciones;
     }
 }

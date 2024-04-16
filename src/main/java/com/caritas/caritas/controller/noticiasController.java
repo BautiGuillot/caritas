@@ -17,15 +17,9 @@ public class noticiasController {
     @Autowired
     private PublicacionService publicacionService;
 
-    @Autowired
-    private AdminService adminService;
-
-
     @GetMapping
     public String mostrarListado(Model model) {
-        List<Admin> admins = adminService.getAllAdmins();
-        model.addAttribute("admin", admins);
-        List<Publicacion> publicaciones = publicacionService.getAll();
+        List<Publicacion> publicaciones = publicacionService.getPublicacionesCorrectas();
         model.addAttribute("publicaciones", publicaciones);
         return "noticias";
     }
