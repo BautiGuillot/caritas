@@ -1,7 +1,5 @@
 package com.caritas.caritas.controller;
 
-import com.caritas.caritas.model.Admin;
-import com.caritas.caritas.model.Email;
 import com.caritas.caritas.model.Publicacion;
 import com.caritas.caritas.service.AdminService;
 import com.caritas.caritas.service.EmailService;
@@ -10,9 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import java.util.List;
 
@@ -30,9 +27,6 @@ public class IndexController {
 
     @GetMapping("/")
     public String mostrarListado(Model model) {
-        List<Admin> admins = adminService.getAllAdmins();
-        model.addAttribute("admin", admins);
-
         //cargar las ultimas 3 publicaciones
         List<Publicacion> publicaciones = publicacionService.getUltimas3PublicacionesCorrectas();
         model.addAttribute("publicaciones", publicaciones);
