@@ -51,7 +51,7 @@ public class CustomLoginFailureHandler extends SimpleUrlAuthenticationFailureHan
 
         }
 
-        super.setDefaultFailureUrl("/login?error");
+        super.setDefaultFailureUrl("/loginError");
         super.onAuthenticationFailure(request, response, exception);
     }
 

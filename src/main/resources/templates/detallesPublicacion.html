@@ -8,12 +8,11 @@
     <link rel="stylesheet" th:href="@{/detallesPublicacion.css}">
 </head>
 
+<div th:insert = "~{indexNavbar :: indexNavbar}"></div>
 
 <body>
 
-<div th:insert = "~{indexNavbar :: indexNavbar}"></div>
-
-    <div class="container mt-4">
+    <div class="containerCards">
         <h2>Detalles de la Publicación</h2>
         <h3 th:text="${publicacion.titulo}">Título</h3>
         <img class="img-thumbnail rounded container"
